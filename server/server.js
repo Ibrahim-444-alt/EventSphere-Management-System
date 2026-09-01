@@ -1,3 +1,4 @@
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -7,7 +8,14 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://event-sphere-management-system-gamma.vercel.app"
+    ],
+    credentials: true
+}));
+
 app.use(express.json());
 
 app.use("/api/auth", require("./routes/authRoutes"));
@@ -23,14 +31,21 @@ app.use("/api/analytics", require("./routes/analyticsRoutes"));
 app.use("/api/reports", require("./routes/reportRoutes"));
 app.use("/api/settings", require("./routes/settingsRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));
-// Simple test route — confirms the server is running before we build
-// any real API endpoints on top of it.
+
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", message: "EventSphere API is running" });
+    res.json({
+        status: "ok",
+        message: "EventSphere API is running"
+    });
 });
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
+

@@ -4,7 +4,7 @@
   "description": "Backend API for EventSphere Management System",
   "main": "server.js",
 
- "main": "server.js",
+"main": "server.js",
 "engines": {
   "node": "20.x"
 },
