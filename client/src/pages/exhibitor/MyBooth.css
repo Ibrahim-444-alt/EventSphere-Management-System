@@ -1,0 +1,449 @@
+/* ============================================
+   MY BOOTH STYLES - Soft Dark Theme
+   ============================================ */
+
+.mybooth {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Header ---------- */
+.mybooth-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.mybooth-head h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+}
+
+.mybooth-head .head-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #b0b8c8);
+  margin: 0;
+}
+
+/* ---------- Status Badge ---------- */
+/* Ye badge Profile.css ke .exhibitor-profile-status jaisa hi hai. Doosre page
+   ki CSS par bharosa karne ke bajaye alag likha gaya — Phase 9 mein dono ko
+   admin.css ke ek shared badge mein le jana chahiye. */
+.mybooth-status {
+  flex-shrink: 0;
+  padding: 5px 16px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid transparent;
+}
+
+.mybooth-status[data-tone="green"] {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.2);
+  color: var(--status-available, #34d399);
+}
+
+.mybooth-status[data-tone="amber"] {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.2);
+  color: var(--status-reserved, #fbbf24);
+}
+
+.mybooth-status[data-tone="red"] {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.2);
+  color: var(--danger, #f87171);
+}
+
+.mybooth-status[data-tone="muted"] {
+  background: var(--bg-secondary, #161d27);
+  border-color: var(--border, #2a3441);
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.mybooth-status[data-tone="purple"] {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border-color: var(--accent-border, rgba(124, 140, 240, 0.2));
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Booth Number ---------- */
+.mybooth-number {
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent, #7c8cf0);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Detail Grid ---------- */
+.mybooth-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.mybooth-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border, #2a3441);
+}
+
+.mybooth-detail:last-child {
+  border-bottom: none;
+}
+
+.mybooth-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary, #b0b8c8);
+  font-weight: 500;
+}
+
+.mybooth-value {
+  font-size: 0.95rem;
+  color: var(--text-h, #f0f2f6);
+  font-weight: 500;
+}
+
+.mybooth-value .value-accent {
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Note ---------- */
+.mybooth-note {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border, #2a3441);
+  font-size: 0.85rem;
+  color: var(--text-secondary, #b0b8c8);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.mybooth-note .note-icon {
+  font-size: 1rem;
+  opacity: 0.5;
+  margin-top: 2px;
+}
+
+.mybooth-note-danger {
+  color: var(--danger, #f87171);
+}
+
+.mybooth-note-success {
+  color: var(--status-available, #34d399);
+}
+
+/* ---------- Floor Grid ---------- */
+/* auto-fill (auto-fit nahi) is liye ke chaar boothon ko poori chaurai par
+   khainch dena floor ko ghalat naqsha bana deta hai. */
+.mybooth-floor {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+/* ---------- Tile ---------- */
+.mybooth-tile {
+  position: relative;
+  padding: 14px 8px;
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-h, #f0f2f6);
+  background: var(--bg-card, #1a222d);
+  transition: all var(--transition-fast, 150ms) ease;
+  cursor: default;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mybooth-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+  border-color: var(--border-light, #33405a);
+}
+
+.mybooth-tile-number {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.mybooth-tile-tag {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent, #7c8cf0);
+  font-weight: 500;
+}
+
+/* ---------- Status Border Colors ---------- */
+.mybooth-tile[data-status="Available"] {
+  border-left: 4px solid var(--status-available, #34d399);
+}
+
+.mybooth-tile[data-status="Reserved"] {
+  border-left: 4px solid var(--status-reserved, #fbbf24);
+}
+
+.mybooth-tile[data-status="Occupied"] {
+  border-left: 4px solid var(--status-occupied, #6b7a8f);
+}
+
+.mybooth-tile[data-status="Pending"] {
+  border-left: 4px solid var(--status-reserved, #fbbf24);
+  opacity: 0.7;
+}
+
+.mybooth-tile[data-status="Maintenance"] {
+  border-left: 4px solid var(--danger, #f87171);
+}
+
+/* Apna booth: mota accent border. Sirf rang par bharosa nahi kiya kyunki
+   ek hi rang ke kai booth ho sakte hain. */
+.mybooth-tile[data-mine="true"] {
+  border: 2px solid var(--accent, #7c8cf0);
+  background: var(--accent-bg, rgba(124, 140, 240, 0.06));
+  box-shadow: 0 0 0 1px var(--accent-border, rgba(124, 140, 240, 0.2));
+}
+
+.mybooth-tile[data-mine="true"]:hover {
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35)), 0 0 0 1px var(--accent, #7c8cf0);
+}
+
+/* data-mine ka border 2px hai, magar CSS mein baad wali rule jeetti hai —
+   is liye apne booth ka left border dobara accent kar dete hain. */
+.mybooth-tile[data-mine="true"][data-status] {
+  border-left: 4px solid var(--accent, #7c8cf0);
+}
+
+/* ---------- Legend ---------- */
+.mybooth-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  padding: 12px 16px;
+  background: var(--bg-secondary, #161d27);
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--border, #2a3441);
+}
+
+.mybooth-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mybooth-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-sm, 3px);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.mybooth-dot[data-status="Available"] {
+  background: var(--status-available, #34d399);
+}
+
+.mybooth-dot[data-status="Reserved"] {
+  background: var(--status-reserved, #fbbf24);
+}
+
+.mybooth-dot[data-status="Occupied"] {
+  background: var(--status-occupied, #6b7a8f);
+}
+
+.mybooth-dot[data-status="Pending"] {
+  background: var(--status-reserved, #fbbf24);
+  opacity: 0.6;
+}
+
+.mybooth-dot[data-status="Maintenance"] {
+  background: var(--danger, #f87171);
+}
+
+.mybooth-dot[data-mine="true"] {
+  border: 2px solid var(--accent, #7c8cf0);
+  background: transparent;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* ---------- Actions ---------- */
+.mybooth-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .mybooth {
+    padding: 0 12px;
+  }
+
+  .mybooth-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .mybooth-head h2 {
+    font-size: 1rem;
+  }
+
+  .mybooth-number {
+    font-size: 2rem;
+  }
+
+  .mybooth-detail-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .mybooth-floor {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
+  }
+
+  .mybooth-tile {
+    padding: 10px 6px;
+    min-height: 50px;
+    font-size: 0.78rem;
+  }
+
+  .mybooth-tile-number {
+    font-size: 0.8rem;
+  }
+
+  .mybooth-legend {
+    gap: 10px;
+    font-size: 0.7rem;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mybooth {
+    padding: 0 8px;
+  }
+
+  .mybooth-head h2 {
+    font-size: 0.95rem;
+  }
+
+  .mybooth-head .head-sub {
+    font-size: 0.78rem;
+  }
+
+  .mybooth-status {
+    font-size: 0.65rem;
+    padding: 3px 12px;
+  }
+
+  .mybooth-number {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .mybooth-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .mybooth-detail {
+    padding: 6px 0;
+  }
+
+  .mybooth-label {
+    font-size: 0.6rem;
+  }
+
+  .mybooth-value {
+    font-size: 0.85rem;
+  }
+
+  .mybooth-note {
+    font-size: 0.78rem;
+    padding-top: 10px;
+    margin-top: 12px;
+  }
+
+  .mybooth-floor {
+    grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .mybooth-tile {
+    padding: 8px 4px;
+    min-height: 42px;
+    font-size: 0.7rem;
+    border-radius: var(--radius-sm, 4px);
+  }
+
+  .mybooth-tile-number {
+    font-size: 0.7rem;
+  }
+
+  .mybooth-tile-tag {
+    font-size: 0.5rem;
+    margin-top: 2px;
+  }
+
+  .mybooth-tile[data-mine="true"] {
+    border-width: 2px;
+  }
+
+  .mybooth-legend {
+    gap: 6px 12px;
+    font-size: 0.62rem;
+    padding: 8px 10px;
+  }
+
+  .mybooth-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .mybooth-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mybooth-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,322 @@
+/* ============================================
+   STAR RATING STYLES - Soft Dark Theme
+   ============================================
+
+   Ye var(--accent) NAHI hai, aur jaan boojh kar. Site ka accent baingani hai,
+   magar duniya bhar mein rating ke sitare sunehri hote hain — yahan brand se
+   pehle banday ki aadat ahem hai.
+   ============================================ */
+
+.star-rating {
+  display: inline-flex;
+  gap: 2px;
+  line-height: 1;
+  font-size: 0.95rem;
+  align-items: center;
+  position: relative;
+}
+
+/* ---------- Star Colors ---------- */
+.star-on {
+  color: #f59e0b;
+  filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.2));
+  transition: all var(--transition-fast, 150ms) ease;
+}
+
+.star-on.half {
+  position: relative;
+}
+
+.star-on.half::after {
+  content: '☆';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+  color: #f59e0b;
+}
+
+/* Khaali sitare bhi dikhne chahiye. Warna "2 out of 5" par sirf do sitare
+   nazar aate hain aur dekhne wala samajhta hai ke paimana do hi ka tha. */
+.star-off {
+  color: var(--border, #2a3441);
+  opacity: 0.6;
+  transition: all var(--transition-fast, 150ms) ease;
+}
+
+/* ---------- Sizes ---------- */
+.star-rating-sm {
+  font-size: 0.75rem;
+  gap: 1px;
+}
+
+.star-rating-lg {
+  font-size: 1.25rem;
+  gap: 3px;
+}
+
+.star-rating-xl {
+  font-size: 1.5rem;
+  gap: 4px;
+}
+
+/* ---------- Interactive ---------- */
+.star-rating-interactive {
+  cursor: pointer;
+}
+
+.star-rating-interactive .star-off,
+.star-rating-interactive .star-on {
+  transition: all var(--transition-fast, 150ms) ease;
+}
+
+.star-rating-interactive .star-off:hover,
+.star-rating-interactive .star-on:hover {
+  transform: scale(1.15);
+}
+
+.star-rating-interactive .star-off:hover ~ .star-off {
+  color: var(--border, #2a3441);
+  transform: scale(1);
+}
+
+.star-rating-interactive .star-on:hover ~ .star-on {
+  opacity: 0.6;
+  transform: scale(0.95);
+}
+
+/* ---------- Rating Display ---------- */
+.star-rating-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.star-rating-display .rating-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #b0b8c8);
+  margin-left: 4px;
+}
+
+.star-rating-display .rating-number {
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  font-size: 0.95rem;
+}
+
+.star-rating-display .rating-total {
+  color: var(--text-muted, #6b7a8f);
+  font-size: 0.8rem;
+}
+
+/* ---------- With Label ---------- */
+.star-rating-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.star-rating-label .label {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+/* ---------- Star Animation ---------- */
+.star-rating .star-on {
+  animation: starPop 0.3s ease;
+}
+
+@keyframes starPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Staggered animation for multiple stars */
+.star-rating .star-on:nth-child(1) {
+  animation-delay: 0ms;
+}
+.star-rating .star-on:nth-child(2) {
+  animation-delay: 50ms;
+}
+.star-rating .star-on:nth-child(3) {
+  animation-delay: 100ms;
+}
+.star-rating .star-on:nth-child(4) {
+  animation-delay: 150ms;
+}
+.star-rating .star-on:nth-child(5) {
+  animation-delay: 200ms;
+}
+
+/* ---------- Read-only ---------- */
+.star-rating-readonly {
+  cursor: default;
+}
+
+.star-rating-readonly .star-on,
+.star-rating-readonly .star-off {
+  transition: none;
+}
+
+/* ---------- Tooltip ---------- */
+.star-rating-tooltip {
+  position: relative;
+}
+
+.star-rating-tooltip .tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card-elevated, #202a36);
+  color: var(--text-h, #f0f2f6);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm, 4px);
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid var(--border, #2a3441);
+  box-shadow: var(--shadow, 0 10px 15px -3px rgba(0, 0, 0, 0.45));
+  transition: all var(--transition-fast, 150ms) ease;
+  pointer-events: none;
+}
+
+.star-rating-tooltip .tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--bg-card-elevated, #202a36);
+}
+
+.star-rating-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .star-rating {
+    font-size: 0.85rem;
+    gap: 1.5px;
+  }
+
+  .star-rating-lg {
+    font-size: 1.1rem;
+    gap: 2px;
+  }
+
+  .star-rating-xl {
+    font-size: 1.3rem;
+    gap: 3px;
+  }
+
+  .star-rating-sm {
+    font-size: 0.7rem;
+    gap: 1px;
+  }
+
+  .star-rating-display .rating-text {
+    font-size: 0.8rem;
+  }
+
+  .star-rating-display .rating-number {
+    font-size: 0.85rem;
+  }
+
+  .star-rating-display .rating-total {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .star-rating {
+    font-size: 0.8rem;
+    gap: 1px;
+  }
+
+  .star-rating-lg {
+    font-size: 1rem;
+    gap: 2px;
+  }
+
+  .star-rating-xl {
+    font-size: 1.1rem;
+    gap: 2px;
+  }
+
+  .star-rating-sm {
+    font-size: 0.65rem;
+    gap: 0.5px;
+  }
+
+  .star-rating-display {
+    flex-wrap: wrap;
+  }
+
+  .star-rating-display .rating-text {
+    font-size: 0.75rem;
+  }
+
+  .star-rating-display .rating-number {
+    font-size: 0.8rem;
+  }
+
+  .star-rating-display .rating-total {
+    font-size: 0.7rem;
+  }
+
+  .star-rating-tooltip .tooltip-text {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+  }
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .star-rating .star-on {
+    animation: none;
+  }
+
+  .star-rating .star-on:nth-child(1),
+  .star-rating .star-on:nth-child(2),
+  .star-rating .star-on:nth-child(3),
+  .star-rating .star-on:nth-child(4),
+  .star-rating .star-on:nth-child(5) {
+    animation-delay: 0ms;
+  }
+}
+
+/* ---------- High Contrast ---------- */
+@media (prefers-contrast: high) {
+  .star-on {
+    color: #fbbf24;
+    filter: none;
+  }
+
+  .star-off {
+    color: var(--border-light, #33405a);
+    opacity: 0.8;
+  }
+
+  .star-rating-tooltip .tooltip-text {
+    border-width: 2px;
+  }
+}

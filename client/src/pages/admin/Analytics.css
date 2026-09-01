@@ -1,0 +1,426 @@
+/* ============================================
+   ANALYTICS STYLES - Soft Dark Theme
+   ============================================
+
+   Analytics-specific styles. Stat cards, panels and states come from
+   styles/admin.css.
+   ============================================ */
+
+/* ---------- Refreshing State ---------- */
+.analytics-refreshing {
+  font-size: 0.85rem;
+  color: var(--accent, #7c8cf0);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.analytics-refreshing .spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border, #2a3441);
+  border-top-color: var(--accent, #7c8cf0);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Stars ---------- */
+.analytics-stars {
+  margin-left: 6px;
+  font-size: 0.8rem;
+  color: var(--status-reserved, #fbbf24);
+  letter-spacing: 1px;
+}
+
+/* ---------- Charts Grid ---------- */
+/* Two charts side by side on a desktop, one per row on a laptop or phone. */
+.analytics-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.analytics-chart {
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  padding: 20px 22px;
+  transition: border-color var(--transition-fast, 150ms) ease;
+}
+
+.analytics-chart:hover {
+  border-color: var(--border-light, #33405a);
+}
+
+.analytics-chart h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.analytics-chart h2 .chart-icon {
+  font-size: 1.1rem;
+  opacity: 0.6;
+}
+
+.analytics-chart .chart-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  font-weight: 400;
+  margin-left: auto;
+}
+
+/* ---------- Bar Chart ---------- */
+.analytics-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 2px 0;
+  transition: background var(--transition-fast, 150ms) ease;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.analytics-bar-row:last-child {
+  margin-bottom: 0;
+}
+
+.analytics-bar-row:hover {
+  background: var(--bg-secondary, #161d27);
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/* A fixed label width keeps every bar starting at the same x position, so the
+   lengths are actually comparable by eye. */
+.analytics-bar-label {
+  width: 96px;
+  flex-shrink: 0;
+  font-size: 0.84rem;
+  color: var(--text-h, #f0f2f6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.analytics-bar-track {
+  flex: 1;
+  height: 10px;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--bg-secondary, #161d27);
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.analytics-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-full, 9999px);
+  /* A zero-width bar would vanish; a hairline shows the row still exists. */
+  min-width: 2px;
+  transition: width 0.6s ease;
+}
+
+.analytics-bar-fill-accent {
+  background: var(--accent, #7c8cf0);
+}
+
+.analytics-bar-fill-green {
+  background: var(--status-available, #34d399);
+}
+
+.analytics-bar-fill-amber {
+  background: var(--status-reserved, #fbbf24);
+}
+
+.analytics-bar-fill-red {
+  background: var(--danger, #f87171);
+}
+
+.analytics-bar-fill-blue {
+  background: var(--info, #60a5fa);
+}
+
+.analytics-bar-fill-purple {
+  background: var(--accent-secondary, #7c3aed);
+}
+
+.analytics-bar-value {
+  width: 36px;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+}
+
+/* ---------- Pie/Donut Chart Placeholder ---------- */
+.analytics-donut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 8px 0;
+}
+
+.analytics-donut-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+  background: conic-gradient(
+    var(--accent, #7c8cf0) 0% 45%,
+    var(--status-available, #34d399) 45% 70%,
+    var(--status-reserved, #fbbf24) 70% 85%,
+    var(--danger, #f87171) 85% 100%
+  );
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.analytics-donut-ring::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: var(--bg-card, #1a222d);
+}
+
+.analytics-donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.analytics-donut-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.analytics-donut-legend-item .color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-sm, 4px);
+  flex-shrink: 0;
+}
+
+.analytics-donut-legend-item .legend-value {
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  margin-left: auto;
+}
+
+/* ---------- Analytics Summary ---------- */
+.analytics-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.analytics-summary-item {
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  padding: 16px 18px;
+  text-align: center;
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.analytics-summary-item:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.analytics-summary-item .number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  line-height: 1.2;
+}
+
+.analytics-summary-item .label {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #b0b8c8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.analytics-summary-item .trend {
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.analytics-summary-item .trend-up {
+  color: var(--success, #34d399);
+}
+
+.analytics-summary-item .trend-down {
+  color: var(--danger, #f87171);
+}
+
+.analytics-summary-item .trend-neutral {
+  color: var(--text-muted, #6b7a8f);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .analytics-charts {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .analytics-chart {
+    padding: 16px 18px;
+  }
+
+  .analytics-chart h2 {
+    font-size: 0.92rem;
+  }
+
+  .analytics-bar-label {
+    width: 72px;
+    font-size: 0.78rem;
+  }
+
+  .analytics-bar-value {
+    width: 30px;
+    font-size: 0.78rem;
+  }
+
+  .analytics-bar-track {
+    height: 8px;
+  }
+
+  .analytics-bar-row {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .analytics-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .analytics-summary-item .number {
+    font-size: 1.4rem;
+  }
+
+  .analytics-donut {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .analytics-donut-ring {
+    width: 100px;
+    height: 100px;
+  }
+
+  .analytics-donut-legend {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .analytics-chart {
+    padding: 14px 14px;
+  }
+
+  .analytics-chart h2 {
+    font-size: 0.85rem;
+  }
+
+  .analytics-chart h2 .chart-subtitle {
+    font-size: 0.68rem;
+  }
+
+  .analytics-bar-label {
+    width: 56px;
+    font-size: 0.72rem;
+  }
+
+  .analytics-bar-value {
+    width: 26px;
+    font-size: 0.72rem;
+  }
+
+  .analytics-bar-track {
+    height: 6px;
+  }
+
+  .analytics-bar-row {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .analytics-bar-row:hover {
+    padding-left: 0;
+    padding-right: 0;
+    background: transparent;
+  }
+
+  .analytics-summary-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .analytics-summary-item {
+    padding: 12px 12px;
+  }
+
+  .analytics-summary-item .number {
+    font-size: 1.2rem;
+  }
+
+  .analytics-summary-item .label {
+    font-size: 0.65rem;
+  }
+
+  .analytics-summary-item .trend {
+    font-size: 0.62rem;
+  }
+
+  .analytics-donut-ring {
+    width: 80px;
+    height: 80px;
+  }
+
+  .analytics-donut-legend-item {
+    font-size: 0.72rem;
+  }
+
+  .analytics-donut-legend-item .color-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .analytics-refreshing {
+    font-size: 0.78rem;
+  }
+
+  .analytics-stars {
+    font-size: 0.7rem;
+  }
+} 

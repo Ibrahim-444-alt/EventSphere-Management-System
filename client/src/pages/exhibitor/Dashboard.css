@@ -1,0 +1,378 @@
+/* ============================================
+   EXHIBITOR DASHBOARD STYLES - Soft Dark Theme
+   ============================================
+
+   Exhibitor dashboard ke apne styles. Stat cards, panel, badge pill aur
+   empty state styles/admin.css se aa rahe hain.
+   ============================================ */
+
+/* ---------- Dashboard Container ---------- */
+.exhibitor-dashboard {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Header ---------- */
+.exhibitor-dashboard-header {
+  margin-bottom: 24px;
+}
+
+.exhibitor-dashboard-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  margin: 0 0 4px;
+  letter-spacing: -0.02em;
+}
+
+.exhibitor-dashboard-header .exhibitor-sub {
+  color: var(--text-secondary, #b0b8c8);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.exhibitor-dashboard-header .exhibitor-sub .accent {
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Quick Stats ---------- */
+.exhibitor-quick-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.exhibitor-quick-stat {
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  padding: 16px 18px;
+  text-align: center;
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.exhibitor-quick-stat:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.exhibitor-quick-stat .stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  line-height: 1.2;
+}
+
+.exhibitor-quick-stat .stat-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary, #b0b8c8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.exhibitor-quick-stat .stat-icon {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  opacity: 0.4;
+}
+
+/* ---------- Application List ---------- */
+.exhibitor-app-list {
+  display: grid;
+  gap: 16px;
+}
+
+.exhibitor-app-card {
+  padding: 20px 22px;
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--bg-card, #1a222d);
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.exhibitor-app-card:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.exhibitor-app-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.exhibitor-app-head h3 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+}
+
+.exhibitor-app-head .app-status {
+  flex-shrink: 0;
+}
+
+/* ---------- Application Meta ---------- */
+/* auto-fit + minmax se ye teen cheezein chaudi screen par ek qatar mein aati
+   hain aur tang screen par khud wrap ho jati hain — media query ke baghair. */
+.exhibitor-app-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+.exhibitor-app-meta dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary, #b0b8c8);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.exhibitor-app-meta dd {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-h, #f0f2f6);
+  font-weight: 500;
+}
+
+.exhibitor-app-meta dd .meta-accent {
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Application Note ---------- */
+.exhibitor-app-note {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border, #2a3441);
+  font-size: 0.83rem;
+  color: var(--text-secondary, #b0b8c8);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exhibitor-app-note .note-icon {
+  font-size: 0.9rem;
+  opacity: 0.5;
+}
+
+.exhibitor-app-note-danger {
+  color: var(--danger, #f87171);
+}
+
+.exhibitor-app-note-success {
+  color: var(--status-available, #34d399);
+}
+
+/* ---------- Badges ---------- */
+/* .admin-badge sirf pill ki shakal deta hai — rang caller ko dena hota hai. */
+.exhibitor-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.exhibitor-badge-pending {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  color: var(--status-reserved, #fbbf24);
+}
+
+.exhibitor-badge-approved {
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--status-available, #34d399);
+}
+
+.exhibitor-badge-rejected {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  color: var(--danger, #f87171);
+}
+
+.exhibitor-badge-muted {
+  background: var(--bg-secondary, #161d27);
+  border: 1px solid var(--border, #2a3441);
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.exhibitor-badge-active {
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--status-available, #34d399);
+}
+
+/* ---------- Empty State ---------- */
+.exhibitor-empty {
+  text-align: center;
+  padding: 48px 24px;
+  border: 1px dashed var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--bg-secondary, #161d27);
+}
+
+.exhibitor-empty .empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  opacity: 0.3;
+}
+
+.exhibitor-empty h3 {
+  color: var(--text-h, #f0f2f6);
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.exhibitor-empty p {
+  color: var(--text-secondary, #b0b8c8);
+  margin: 0 0 16px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .exhibitor-dashboard {
+    padding: 0 12px;
+  }
+
+  .exhibitor-dashboard-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .exhibitor-quick-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .exhibitor-quick-stat {
+    padding: 14px 12px;
+  }
+
+  .exhibitor-quick-stat .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .exhibitor-app-card {
+    padding: 16px 18px;
+  }
+
+  .exhibitor-app-head h3 {
+    font-size: 0.95rem;
+  }
+
+  .exhibitor-app-meta {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .exhibitor-app-meta dt {
+    font-size: 0.65rem;
+  }
+
+  .exhibitor-app-meta dd {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exhibitor-dashboard {
+    padding: 0 8px;
+  }
+
+  .exhibitor-dashboard-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .exhibitor-dashboard-header .exhibitor-sub {
+    font-size: 0.82rem;
+  }
+
+  .exhibitor-quick-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .exhibitor-quick-stat {
+    padding: 12px 10px;
+  }
+
+  .exhibitor-quick-stat .stat-number {
+    font-size: 1rem;
+  }
+
+  .exhibitor-quick-stat .stat-label {
+    font-size: 0.6rem;
+  }
+
+  .exhibitor-quick-stat .stat-icon {
+    font-size: 0.9rem;
+  }
+
+  .exhibitor-app-card {
+    padding: 14px 14px;
+  }
+
+  .exhibitor-app-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .exhibitor-app-head h3 {
+    font-size: 0.88rem;
+  }
+
+  .exhibitor-app-meta {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .exhibitor-app-meta dt {
+    font-size: 0.6rem;
+  }
+
+  .exhibitor-app-meta dd {
+    font-size: 0.78rem;
+  }
+
+  .exhibitor-app-note {
+    font-size: 0.75rem;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .exhibitor-badge {
+    font-size: 0.6rem;
+    padding: 3px 10px;
+  }
+
+  .exhibitor-empty {
+    padding: 32px 16px;
+  }
+
+  .exhibitor-empty .empty-icon {
+    font-size: 2rem;
+  }
+
+  .exhibitor-empty h3 {
+    font-size: 0.95rem;
+  }
+
+  .exhibitor-empty p {
+    font-size: 0.82rem;
+  }
+}

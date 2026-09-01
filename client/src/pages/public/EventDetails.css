@@ -1,0 +1,485 @@
+/* ============================================
+   EVENT DETAILS PAGE STYLES - Soft Dark Theme
+   ============================================ */
+
+.event-details-page {
+  padding: 0 24px 64px;
+  max-width: 740px;
+  margin: 0 auto;
+  text-align: left;
+  background: var(--bg, #11161e);
+}
+
+/* ---------- Back Link ---------- */
+.event-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 32px 0 24px;
+  color: var(--accent, #7c8cf0);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all var(--transition-fast, 150ms) ease;
+}
+
+.event-back-link:hover {
+  color: var(--accent-hover, #959ff5);
+  text-decoration: underline;
+  gap: 10px;
+}
+
+.event-back-link .back-arrow {
+  transition: transform var(--transition-fast, 150ms) ease;
+}
+
+.event-back-link:hover .back-arrow {
+  transform: translateX(-3px);
+}
+
+/* ---------- Cover Image ---------- */
+.event-details-cover {
+  position: relative;
+  border-radius: var(--radius-xl, 16px);
+  overflow: hidden;
+  line-height: 0;
+  box-shadow: var(--shadow, 0 10px 15px -3px rgba(0, 0, 0, 0.45));
+  background: var(--bg-secondary, #161d27);
+}
+
+.event-details-cover .event-cover {
+  height: 240px;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.event-details-cover .status-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--bg-card, #1a222d);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--border, #2a3441);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+/* ---------- Body ---------- */
+.event-details-body {
+  padding-top: 28px;
+}
+
+.event-theme-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent, #7c8cf0);
+  margin: 0 0 8px;
+  display: inline-block;
+  padding: 2px 0;
+}
+
+.event-details-body h1 {
+  margin: 0 0 16px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.event-details-about {
+  color: var(--text-secondary, #b0b8c8);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  font-size: 1.02rem;
+}
+
+/* ---------- Info Card ---------- */
+.event-info-card {
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-xl, 16px);
+  padding: 4px 24px;
+  margin-bottom: 32px;
+  background: var(--bg-card, #1a222d);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+  transition: border-color var(--transition-fast, 150ms) ease;
+}
+
+.event-info-card:hover {
+  border-color: var(--border-light, #33405a);
+}
+
+.event-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border, #2a3441);
+}
+
+.event-info-row:last-child {
+  border-bottom: none;
+}
+
+.event-info-label {
+  color: var(--text-secondary, #b0b8c8);
+  font-size: 0.88rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.event-info-label .info-icon {
+  opacity: 0.6;
+  font-size: 1rem;
+}
+
+.event-info-value {
+  color: var(--text-h, #f0f2f6);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ---------- CTA ---------- */
+.event-details-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* ---------- Not Found ---------- */
+.event-not-found {
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.event-not-found .not-found-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+
+.event-not-found h2 {
+  color: var(--text-h, #f0f2f6);
+}
+
+.event-not-found p {
+  color: var(--text-secondary, #b0b8c8);
+  margin: 12px 0 24px;
+}
+
+/* ---------- Loading ---------- */
+.event-details-loading {
+  padding: 80px 24px;
+  text-align: center;
+  color: var(--text-muted, #6b7a8f);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.event-details-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border, #2a3441);
+  border-top-color: var(--accent, #7c8cf0);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Reviews ---------- */
+.event-reviews {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+.event-reviews-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.event-reviews-head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+}
+
+.event-reviews-score {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.event-reviews-average {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.event-reviews-outof,
+.event-reviews-count {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.event-reviews-empty {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #b0b8c8);
+  text-align: center;
+  padding: 32px 0;
+}
+
+/* ---------- Review List ---------- */
+.review-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.review-card {
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  padding: 18px 20px;
+  background: var(--bg-card, #1a222d);
+  transition: all var(--transition-base, 250ms) ease;
+  /* Grid ka item hone ke bawajood min-width chahiye: flex/grid items ki default
+     min-width auto hoti hai, aur ek lamba bila-space lafz column ko cheer kar
+     bahar nikal jata hai. */
+  min-width: 0;
+}
+
+.review-card:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.review-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.review-category {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary, #b0b8c8);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-weight: 500;
+}
+
+.review-card-head .review-stars {
+  margin-left: auto;
+}
+
+.review-comment {
+  margin: 0 0 12px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-h, #f0f2f6);
+  /* pre-wrap: banda ne Enter dabaya tha to wo nazar aaye. anywhere: koi bohat
+     lamba URL ya bila-space lafz card ke bahar na nikle. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.review-meta {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  opacity: 0.7;
+}
+
+.review-meta .review-author {
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+  opacity: 1;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .event-details-page {
+    padding: 0 16px 48px;
+  }
+
+  .event-back-link {
+    margin: 20px 0 16px;
+    font-size: 0.85rem;
+  }
+
+  .event-details-cover .event-cover {
+    height: 180px;
+  }
+
+  .event-details-body {
+    padding-top: 20px;
+  }
+
+  .event-details-body h1 {
+    font-size: 1.8rem;
+  }
+
+  .event-details-about {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+
+  .event-info-card {
+    padding: 4px 16px;
+    margin-bottom: 24px;
+  }
+
+  .event-info-row {
+    padding: 14px 0;
+  }
+
+  .event-info-label {
+    font-size: 0.82rem;
+  }
+
+  .event-info-value {
+    font-size: 0.88rem;
+  }
+
+  .event-reviews {
+    margin-top: 32px;
+    padding-top: 24px;
+  }
+
+  .event-reviews-head h2 {
+    font-size: 1.1rem;
+  }
+
+  .review-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .event-details-cta {
+    flex-direction: column;
+  }
+
+  .event-details-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .event-details-page {
+    padding: 0 12px 40px;
+  }
+
+  .event-back-link {
+    margin: 16px 0 12px;
+    font-size: 0.82rem;
+  }
+
+  .event-details-cover .event-cover {
+    height: 150px;
+  }
+
+  .event-details-cover .status-badge {
+    top: 12px;
+    right: 12px;
+    font-size: 0.6rem;
+    padding: 3px 10px;
+  }
+
+  .event-details-body {
+    padding-top: 16px;
+  }
+
+  .event-theme-tag {
+    font-size: 0.65rem;
+  }
+
+  .event-details-body h1 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .event-details-about {
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .event-info-card {
+    padding: 2px 14px;
+    border-radius: var(--radius-lg, 12px);
+  }
+
+  .event-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px 0;
+  }
+
+  .event-info-label {
+    font-size: 0.78rem;
+  }
+
+  .event-info-value {
+    font-size: 0.85rem;
+  }
+
+  .event-reviews {
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+
+  .event-reviews-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .event-reviews-average {
+    font-size: 1.3rem;
+  }
+
+  .review-card {
+    padding: 14px 16px;
+  }
+
+  .review-comment {
+    font-size: 0.85rem;
+  }
+
+  .event-not-found {
+    padding: 48px 16px;
+  }
+
+  .event-not-found .not-found-icon {
+    font-size: 3rem;
+  }
+
+  .event-details-loading {
+    padding: 48px 16px;
+  }
+}

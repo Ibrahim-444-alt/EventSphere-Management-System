@@ -1,0 +1,304 @@
+/* ============================================
+   EXHIBITOR MANAGEMENT STYLES - Soft Dark Theme
+   ============================================ */
+
+/* ---------- Exhibitor Status Badges ---------- */
+.admin-status-pending {
+  background: var(--bg-secondary, #161d27);
+  color: var(--text-secondary, #b0b8c8);
+  border: 1px solid var(--border, #2a3441);
+}
+
+.admin-status-approved {
+  background: rgba(52, 211, 153, 0.1);
+  color: var(--status-available, #34d399);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+}
+
+.admin-status-rejected {
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--danger, #f87171);
+  border: 1px solid rgba(248, 113, 113, 0.15);
+}
+
+.admin-status-active {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  color: var(--accent, #7c8cf0);
+  border: 1px solid rgba(124, 140, 240, 0.15);
+}
+
+.admin-status-inactive {
+  background: rgba(107, 122, 143, 0.1);
+  color: var(--status-occupied, #6b7a8f);
+  border: 1px solid rgba(107, 122, 143, 0.15);
+}
+
+/* Shared status badge base */
+.admin-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-status-badge .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.admin-status-pending .status-dot {
+  background: var(--text-muted, #6b7a8f);
+}
+.admin-status-approved .status-dot {
+  background: var(--status-available, #34d399);
+}
+.admin-status-rejected .status-dot {
+  background: var(--danger, #f87171);
+}
+.admin-status-active .status-dot {
+  background: var(--accent, #7c8cf0);
+}
+.admin-status-inactive .status-dot {
+  background: var(--status-occupied, #6b7a8f);
+}
+
+/* ---------- Approve/Reject Action Buttons ---------- */
+.admin-approve-btn,
+.admin-reject-btn {
+  padding: 5px 14px;
+  border-radius: var(--radius-sm, 4px);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  transition: all var(--transition-fast, 150ms) ease;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-approve-btn {
+  background: rgba(52, 211, 153, 0.1);
+  color: var(--status-available, #34d399);
+  border-color: rgba(52, 211, 153, 0.15);
+}
+
+.admin-approve-btn:hover {
+  background: var(--status-available, #34d399);
+  color: #fff;
+  border-color: var(--status-available, #34d399);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(52, 211, 153, 0.25);
+}
+
+.admin-approve-btn:active {
+  transform: translateY(0);
+}
+
+.admin-reject-btn {
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--danger, #f87171);
+  border-color: rgba(248, 113, 113, 0.15);
+}
+
+.admin-reject-btn:hover {
+  background: var(--danger, #f87171);
+  color: #fff;
+  border-color: var(--danger, #f87171);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(248, 113, 113, 0.25);
+}
+
+.admin-reject-btn:active {
+  transform: translateY(0);
+}
+
+.admin-approve-btn:disabled,
+.admin-reject-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---------- Exhibitor Card View ---------- */
+.admin-exhibitor-card {
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  padding: 20px 22px;
+  transition: all var(--transition-base, 250ms) ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-exhibitor-card:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow, 0 10px 15px -3px rgba(0, 0, 0, 0.45));
+}
+
+.admin-exhibitor-card .exhibitor-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+}
+
+.admin-exhibitor-card .exhibitor-company {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.admin-exhibitor-card .exhibitor-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted, #6b7a8f);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-exhibitor-card .exhibitor-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* ---------- Exhibitor Stats ---------- */
+.admin-exhibitor-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.admin-exhibitor-stat {
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  padding: 16px 18px;
+  text-align: center;
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.admin-exhibitor-stat:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.admin-exhibitor-stat .stat-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  line-height: 1.2;
+}
+
+.admin-exhibitor-stat .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #b0b8c8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-exhibitor-stat .stat-icon {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  opacity: 0.4;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .admin-exhibitor-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .admin-exhibitor-stat {
+    padding: 14px 14px;
+  }
+
+  .admin-exhibitor-stat .stat-number {
+    font-size: 1.3rem;
+  }
+
+  .admin-exhibitor-stat .stat-label {
+    font-size: 0.7rem;
+  }
+
+  .admin-exhibitor-card {
+    padding: 16px 18px;
+  }
+
+  .admin-exhibitor-card .exhibitor-name {
+    font-size: 0.95rem;
+  }
+
+  .admin-approve-btn,
+  .admin-reject-btn {
+    padding: 4px 12px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-exhibitor-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .admin-exhibitor-stat {
+    padding: 12px 12px;
+  }
+
+  .admin-exhibitor-stat .stat-number {
+    font-size: 1.1rem;
+  }
+
+  .admin-exhibitor-stat .stat-label {
+    font-size: 0.62rem;
+  }
+
+  .admin-exhibitor-stat .stat-icon {
+    font-size: 1rem;
+  }
+
+  .admin-exhibitor-card {
+    padding: 14px 14px;
+  }
+
+  .admin-exhibitor-card .exhibitor-name {
+    font-size: 0.88rem;
+  }
+
+  .admin-exhibitor-card .exhibitor-company {
+    font-size: 0.82rem;
+  }
+
+  .admin-exhibitor-card .exhibitor-meta {
+    font-size: 0.75rem;
+    gap: 8px;
+  }
+
+  .admin-exhibitor-card .exhibitor-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-approve-btn,
+  .admin-reject-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 6px 12px;
+    font-size: 0.7rem;
+  }
+}

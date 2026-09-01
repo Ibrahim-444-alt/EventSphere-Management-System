@@ -1,0 +1,484 @@
+/* ============================================
+   ATTENDEE DASHBOARD STYLES - Soft Dark Theme
+   ============================================
+
+   Pass ki tamam styles ab components/attendee/Pass.css mein hain. Yahan sirf
+   wo cheezein hain jo is page ki apni hain.
+   ============================================ */
+
+.attendee-home {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Welcome Section ---------- */
+.attendee-welcome {
+  margin-bottom: 28px;
+  padding: 24px 28px;
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.attendee-welcome h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  margin: 0 0 4px;
+  letter-spacing: -0.02em;
+}
+
+.attendee-welcome .welcome-sub {
+  color: var(--text-secondary, #b0b8c8);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.attendee-welcome .welcome-accent {
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Quick Stats ---------- */
+.attendee-quick-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.attendee-quick-stat {
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  padding: 16px 18px;
+  text-align: center;
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.attendee-quick-stat:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.attendee-quick-stat .stat-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  line-height: 1.2;
+}
+
+.attendee-quick-stat .stat-label {
+  font-size: 0.72rem;
+  color: var(--text-secondary, #b0b8c8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.attendee-quick-stat .stat-icon {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  opacity: 0.4;
+}
+
+/* ---------- Pass Section ---------- */
+.attendee-pass-section {
+  margin-bottom: 28px;
+}
+
+.attendee-pass-section .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.attendee-pass-section .section-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  margin: 0;
+}
+
+.attendee-pass-section .section-header .header-action {
+  font-size: 0.85rem;
+  color: var(--accent, #7c8cf0);
+  text-decoration: none;
+  transition: color var(--transition-fast, 150ms) ease;
+}
+
+.attendee-pass-section .section-header .header-action:hover {
+  color: var(--accent-hover, #959ff5);
+  text-decoration: underline;
+}
+
+/* ---------- Blank Pass (Empty State) ---------- */
+/* Khaali haalat bhi pass hi ki shakl mein — page ka dhaancha nahi badalta, aur
+   khaali screen dawat ban jati hai. */
+.pass-blank {
+  background: var(--bg-secondary, #161d27);
+  border: 2px dashed var(--border, #2a3441);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: none;
+  color: var(--text-secondary, #b0b8c8);
+  padding: 40px 32px;
+  text-align: center;
+  transition: border-color var(--transition-fast, 150ms) ease;
+}
+
+.pass-blank:hover {
+  border-color: var(--border-light, #33405a);
+}
+
+.pass-blank .pass-label {
+  color: var(--text-secondary, #b0b8c8);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+
+.pass-blank .pass-name {
+  color: var(--text-h, #f0f2f6);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 8px 0 4px;
+}
+
+.pass-blank-text {
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: var(--text-secondary, #b0b8c8);
+  opacity: 0.8;
+}
+
+.pass-blank .pass-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  opacity: 0.3;
+}
+
+.pass-blank .btn {
+  margin-top: 16px;
+}
+
+/* ---------- Upcoming Events ---------- */
+.attendee-upcoming {
+  margin-top: 8px;
+}
+
+.attendee-upcoming .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.attendee-upcoming .section-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  margin: 0;
+}
+
+.attendee-upcoming .section-header .view-all {
+  font-size: 0.85rem;
+  color: var(--accent, #7c8cf0);
+  text-decoration: none;
+  transition: color var(--transition-fast, 150ms) ease;
+}
+
+.attendee-upcoming .section-header .view-all:hover {
+  color: var(--accent-hover, #959ff5);
+  text-decoration: underline;
+}
+
+/* ---------- Upcoming Event Items ---------- */
+.upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upcoming-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  transition: all var(--transition-base, 250ms) ease;
+  text-decoration: none;
+}
+
+.upcoming-item:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.upcoming-item .event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  padding: 4px 8px;
+  background: var(--bg-secondary, #161d27);
+  border-radius: var(--radius-sm, 4px);
+  border: 1px solid var(--border, #2a3441);
+}
+
+.upcoming-item .event-date .day {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  line-height: 1.1;
+}
+
+.upcoming-item .event-date .month {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: var(--text-secondary, #b0b8c8);
+  letter-spacing: 0.06em;
+}
+
+.upcoming-item .event-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.upcoming-item .event-info .event-title {
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+  font-size: 0.92rem;
+}
+
+.upcoming-item .event-info .event-meta {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  margin-top: 2px;
+}
+
+.upcoming-item .event-arrow {
+  color: var(--text-muted, #6b7a8f);
+  font-size: 1.1rem;
+  transition: transform var(--transition-fast, 150ms) ease;
+}
+
+.upcoming-item:hover .event-arrow {
+  transform: translateX(4px);
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Empty Upcoming ---------- */
+.upcoming-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-secondary, #b0b8c8);
+  border: 1px dashed var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+}
+
+.upcoming-empty .empty-icon {
+  font-size: 2rem;
+  opacity: 0.3;
+  margin-bottom: 8px;
+}
+
+/* ---------- More Link ---------- */
+.attendee-more {
+  margin-top: 32px;
+  font-size: 0.88rem;
+  text-align: center;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.attendee-more a {
+  color: var(--accent, #7c8cf0);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast, 150ms) ease;
+}
+
+.attendee-more a:hover {
+  color: var(--accent-hover, #959ff5);
+  text-decoration: underline;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .attendee-home {
+    padding: 0 12px;
+  }
+
+  .attendee-welcome {
+    padding: 18px 20px;
+  }
+
+  .attendee-welcome h1 {
+    font-size: 1.3rem;
+  }
+
+  .attendee-welcome .welcome-sub {
+    font-size: 0.88rem;
+  }
+
+  .attendee-quick-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .attendee-quick-stat {
+    padding: 14px 12px;
+  }
+
+  .attendee-quick-stat .stat-number {
+    font-size: 1.3rem;
+  }
+
+  .pass-blank {
+    padding: 32px 20px;
+  }
+
+  .pass-blank .pass-name {
+    font-size: 1.2rem;
+  }
+
+  .upcoming-item {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .upcoming-item .event-date {
+    min-width: 40px;
+    padding: 2px 6px;
+  }
+
+  .upcoming-item .event-date .day {
+    font-size: 0.95rem;
+  }
+
+  .upcoming-item .event-date .month {
+    font-size: 0.5rem;
+  }
+
+  .upcoming-item .event-info .event-title {
+    font-size: 0.85rem;
+  }
+
+  .upcoming-item .event-info .event-meta {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendee-home {
+    padding: 0 8px;
+  }
+
+  .attendee-welcome {
+    padding: 14px 16px;
+  }
+
+  .attendee-welcome h1 {
+    font-size: 1.1rem;
+  }
+
+  .attendee-welcome .welcome-sub {
+    font-size: 0.82rem;
+  }
+
+  .attendee-quick-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .attendee-quick-stat {
+    padding: 12px 10px;
+  }
+
+  .attendee-quick-stat .stat-number {
+    font-size: 1.1rem;
+  }
+
+  .attendee-quick-stat .stat-label {
+    font-size: 0.62rem;
+  }
+
+  .attendee-quick-stat .stat-icon {
+    font-size: 1rem;
+  }
+
+  .attendee-pass-section .section-header h2,
+  .attendee-upcoming .section-header h2 {
+    font-size: 0.95rem;
+  }
+
+  .pass-blank {
+    padding: 24px 16px;
+  }
+
+  .pass-blank .pass-name {
+    font-size: 1rem;
+  }
+
+  .pass-blank .pass-icon {
+    font-size: 2rem;
+  }
+
+  .pass-blank-text {
+    font-size: 0.82rem;
+  }
+
+  .upcoming-item {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .upcoming-item .event-date {
+    min-width: 34px;
+    padding: 2px 4px;
+  }
+
+  .upcoming-item .event-date .day {
+    font-size: 0.82rem;
+  }
+
+  .upcoming-item .event-date .month {
+    font-size: 0.45rem;
+  }
+
+  .upcoming-item .event-info .event-title {
+    font-size: 0.8rem;
+  }
+
+  .upcoming-item .event-info .event-meta {
+    font-size: 0.68rem;
+  }
+
+  .upcoming-item .event-arrow {
+    font-size: 0.9rem;
+  }
+
+  .attendee-more {
+    font-size: 0.8rem;
+    margin-top: 24px;
+  }
+
+  .upcoming-empty {
+    padding: 24px 12px;
+  }
+
+  .upcoming-empty .empty-icon {
+    font-size: 1.5rem;
+  }
+}

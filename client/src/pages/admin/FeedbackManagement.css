@@ -1,0 +1,447 @@
+/* ============================================
+   FEEDBACK MANAGEMENT STYLES - Soft Dark Theme
+   ============================================
+
+   Feedback-specific styles. Stats grid, filters, badges, buttons and the
+   loading/error/empty states all come from styles/admin.css.
+   ============================================ */
+
+/* ---------- Summary Stats ---------- */
+.feedback-summary {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  margin-bottom: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.feedback-summary .admin-stat-card {
+  margin-bottom: 0;
+}
+
+/* ---------- Stars ---------- */
+.feedback-stars {
+  color: var(--status-reserved, #fbbf24);
+  letter-spacing: 1px;
+}
+
+.feedback-stars-inline {
+  margin-left: 6px;
+  font-size: 0.8rem;
+}
+
+.feedback-stars-lg {
+  font-size: 1.05rem;
+}
+
+/* ---------- Rating Distribution ---------- */
+.feedback-distribution {
+  margin-bottom: 28px;
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  padding: 20px 24px;
+}
+
+.feedback-distribution h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  margin: 0 0 14px;
+}
+
+.feedback-dist-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.feedback-dist-row:last-child {
+  margin-bottom: 0;
+}
+
+.feedback-dist-label {
+  width: 42px;
+  font-size: 0.85rem;
+  color: var(--text-h, #f0f2f6);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.feedback-dist-label .star-small {
+  font-size: 0.7rem;
+  color: var(--status-reserved, #fbbf24);
+}
+
+.feedback-dist-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--bg-secondary, #161d27);
+  overflow: hidden;
+}
+
+.feedback-dist-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--accent, #7c8cf0);
+  transition: width 0.6s ease;
+}
+
+.feedback-dist-count {
+  width: 32px;
+  text-align: right;
+  font-size: 0.82rem;
+  color: var(--text-secondary, #b0b8c8);
+  font-weight: 500;
+}
+
+/* ---------- Feedback List ---------- */
+.feedback-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Feedback Card ---------- */
+.feedback-card {
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg-card, #1a222d);
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.feedback-card:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+/* Hidden feedback stays visible to the admin, just clearly set aside. */
+.feedback-card-hidden {
+  opacity: 0.5;
+  border-style: dashed;
+  border-color: var(--border, #2a3441);
+}
+
+.feedback-card-hidden:hover {
+  opacity: 0.7;
+}
+
+/* ---------- Card Top ---------- */
+.feedback-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.feedback-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Badges ---------- */
+/* .admin-badge is only the pill shape — the colour has to come from here. */
+.feedback-category {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border: 1px solid var(--accent-border, rgba(124, 140, 240, 0.3));
+  color: var(--accent, #7c8cf0);
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.feedback-status-hidden {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  color: var(--danger, #f87171);
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Meta ---------- */
+.feedback-meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.feedback-author {
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  font-size: 0.9rem;
+}
+
+.feedback-contact {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.feedback-context {
+  font-size: 0.82rem;
+  color: var(--text-secondary, #b0b8c8);
+  margin: 0;
+}
+
+.feedback-session {
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Comment ---------- */
+.feedback-comment {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-h, #f0f2f6);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Card Actions ---------- */
+.feedback-card-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border, #2a3441);
+  flex-wrap: wrap;
+}
+
+/* ---------- Modal Form ---------- */
+.feedback-form-grid {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.feedback-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.feedback-field-full {
+  grid-column: 1 / -1;
+}
+
+.feedback-field > span {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+}
+
+.feedback-field > span .required {
+  color: var(--danger, #f87171);
+  margin-left: 2px;
+}
+
+/* .admin-search is capped at 320px for the filter bar; fill the modal. */
+.feedback-field .admin-search,
+.feedback-field .admin-select {
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.feedback-textarea {
+  font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ---------- Star Picker ---------- */
+.feedback-star-picker {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.feedback-star-btn {
+  background: none;
+  border: none;
+  padding: 0 2px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms) ease;
+  color: var(--border, #2a3441);
+}
+
+.feedback-star-btn:hover {
+  color: var(--status-reserved, #fbbf24);
+  transform: scale(1.1);
+}
+
+.feedback-star-btn.is-active {
+  color: var(--status-reserved, #fbbf24);
+}
+
+.feedback-star-btn:focus-visible {
+  outline: 2px solid var(--accent, #7c8cf0);
+  outline-offset: 2px;
+}
+
+.feedback-star-hint {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+/* ---------- Modal Actions ---------- */
+.feedback-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .feedback-summary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .feedback-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .feedback-card {
+    padding: 16px 18px;
+  }
+
+  .feedback-distribution {
+    padding: 16px 18px;
+  }
+
+  .feedback-modal-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .feedback-modal-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .feedback-star-btn {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .feedback-card {
+    padding: 14px 14px;
+  }
+
+  .feedback-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .feedback-badges {
+    width: 100%;
+  }
+
+  .feedback-meta {
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+
+  .feedback-author {
+    font-size: 0.85rem;
+  }
+
+  .feedback-contact {
+    font-size: 0.72rem;
+  }
+
+  .feedback-comment {
+    font-size: 0.85rem;
+  }
+
+  .feedback-context {
+    font-size: 0.78rem;
+  }
+
+  .feedback-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .feedback-card-actions .admin-link {
+    text-align: center;
+  }
+
+  .feedback-distribution {
+    padding: 14px 14px;
+  }
+
+  .feedback-dist-row {
+    gap: 8px;
+  }
+
+  .feedback-dist-label {
+    width: 34px;
+    font-size: 0.78rem;
+  }
+
+  .feedback-dist-count {
+    width: 26px;
+    font-size: 0.72rem;
+  }
+
+  .feedback-dist-bar {
+    height: 6px;
+  }
+
+  .feedback-star-btn {
+    font-size: 1.1rem;
+  }
+
+  .feedback-star-hint {
+    font-size: 0.72rem;
+  }
+
+  .feedback-field > span {
+    font-size: 0.78rem;
+  }
+
+  .feedback-form-grid {
+    gap: 10px;
+  }
+}

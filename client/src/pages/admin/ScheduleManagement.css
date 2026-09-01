@@ -1,0 +1,414 @@
+/* ============================================
+   SCHEDULE MANAGEMENT STYLES - Soft Dark Theme
+   ============================================
+
+   Schedule-specific styles. Header, filters, panels, badges, buttons and
+   empty states all come from styles/admin.css.
+   ============================================ */
+
+/* ---------- Schedule Days ---------- */
+.schedule-days {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.schedule-day-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border, #2a3441);
+}
+
+.schedule-day-heading h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.schedule-day-heading h2 .day-icon {
+  font-size: 1.1rem;
+  color: var(--accent, #7c8cf0);
+  opacity: 0.7;
+}
+
+.schedule-day-count {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  background: var(--bg-secondary, #161d27);
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid var(--border, #2a3441);
+}
+
+/* ---------- Schedule Item ---------- */
+/* Time on the left, details in the middle, actions on the right — the
+   layout a printed conference programme uses. */
+.schedule-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 18px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border, #2a3441);
+  transition: background var(--transition-fast, 150ms) ease;
+}
+
+.schedule-item:hover {
+  background: var(--bg-secondary, #161d27);
+  margin: 0 -12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.schedule-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.schedule-item:last-child:hover {
+  padding-bottom: 0;
+}
+
+/* ---------- Time ---------- */
+.schedule-time {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.85rem;
+  padding-top: 2px;
+}
+
+.schedule-time-start {
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+}
+
+.schedule-time-end {
+  color: var(--text-secondary, #b0b8c8);
+  font-size: 0.78rem;
+  margin-top: 1px;
+}
+
+/* ---------- Body ---------- */
+.schedule-body {
+  min-width: 0;
+}
+
+.schedule-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.schedule-title {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+  overflow-wrap: anywhere;
+  transition: color var(--transition-fast, 150ms) ease;
+}
+
+.schedule-item:hover .schedule-title {
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Session Badges ---------- */
+/* .admin-badge only supplies the pill shape, so the colours live here. */
+.session-type {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border: 1px solid var(--accent-border, rgba(124, 140, 240, 0.3));
+  color: var(--accent, #7c8cf0);
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.session-status {
+  background: var(--bg-secondary, #161d27);
+  border: 1px solid var(--border, #2a3441);
+  color: var(--text-secondary, #b0b8c8);
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.session-status-confirmed {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.2);
+  color: var(--status-available, #34d399);
+}
+
+.session-status-cancelled {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.2);
+  color: var(--danger, #f87171);
+}
+
+.session-status-draft {
+  background: var(--bg-secondary, #161d27);
+  border-color: var(--border, #2a3441);
+  color: var(--text-muted, #6b7a8f);
+}
+
+/* ---------- Meta ---------- */
+.schedule-meta {
+  margin: 0;
+  font-size: 0.83rem;
+  color: var(--text-secondary, #b0b8c8);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.schedule-meta .speaker-name {
+  color: var(--text-h, #f0f2f6);
+  font-weight: 500;
+}
+
+.schedule-meta .location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted, #6b7a8f);
+}
+
+.schedule-description {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #b0b8c8);
+  opacity: 0.85;
+}
+
+/* ---------- Cancelled Session ---------- */
+/* A cancelled session stays visible — the admin needs to know it exists —
+   but is clearly struck out. */
+.schedule-item-cancelled .schedule-title {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.schedule-item-cancelled .schedule-time,
+.schedule-item-cancelled .schedule-body {
+  opacity: 0.6;
+}
+
+.schedule-item-cancelled:hover {
+  background: rgba(248, 113, 113, 0.04);
+}
+
+/* ---------- Actions ---------- */
+.schedule-actions {
+  padding-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Modal Form ---------- */
+.schedule-form-grid {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.schedule-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.schedule-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.schedule-field-full {
+  grid-column: 1 / -1;
+}
+
+.schedule-field > span {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+}
+
+.schedule-field > span .required {
+  color: var(--danger, #f87171);
+  margin-left: 2px;
+}
+
+/* .admin-search is capped at 320px for the filter bar; fill the modal. */
+.schedule-field .admin-search,
+.schedule-field .admin-select {
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.schedule-field textarea.admin-search {
+  resize: vertical;
+  line-height: 1.5;
+  min-height: 80px;
+}
+
+/* ---------- Modal Actions ---------- */
+.schedule-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .schedule-form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .schedule-field-full {
+    grid-column: auto;
+  }
+
+  .schedule-modal-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .schedule-modal-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .schedule-day-heading h2 {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .schedule-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px 0;
+  }
+
+  .schedule-item:hover {
+    margin: 0 -8px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .schedule-time {
+    flex-direction: row;
+    gap: 8px;
+    align-items: baseline;
+    font-size: 0.8rem;
+  }
+
+  .schedule-time-end {
+    font-size: 0.72rem;
+  }
+
+  .schedule-title {
+    font-size: 0.9rem;
+  }
+
+  .schedule-title-row {
+    gap: 6px;
+  }
+
+  .schedule-meta {
+    font-size: 0.78rem;
+    gap: 8px;
+  }
+
+  .schedule-description {
+    font-size: 0.8rem;
+  }
+
+  .schedule-actions {
+    justify-content: flex-start;
+    gap: 4px;
+  }
+
+  .schedule-day-heading {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .session-type,
+  .session-status {
+    font-size: 0.6rem;
+    padding: 1px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule-item {
+    padding: 12px 0;
+    gap: 6px;
+  }
+
+  .schedule-time {
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+
+  .schedule-title {
+    font-size: 0.85rem;
+  }
+
+  .schedule-meta {
+    font-size: 0.72rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .schedule-description {
+    font-size: 0.78rem;
+    margin-top: 4px;
+  }
+
+  .schedule-actions .admin-link {
+    font-size: 0.78rem;
+  }
+
+  .schedule-field > span {
+    font-size: 0.78rem;
+  }
+
+  .schedule-form-grid {
+    gap: 10px;
+  }
+}

@@ -1,0 +1,367 @@
+/* ============================================
+   ATTENDEE PROFILE STYLES - Soft Dark Theme
+   ============================================ */
+
+.acct {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Header ---------- */
+.acct-header {
+  margin-bottom: 24px;
+}
+
+.acct-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  margin: 0 0 4px;
+  letter-spacing: -0.02em;
+}
+
+.acct-header .acct-sub {
+  color: var(--text-secondary, #b0b8c8);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* ---------- Stats ---------- */
+/* Teen cards, kyunki teen hi cheezein hain. auto-fill wala grid do ya chaar par
+   bhi theek chalta hai, magar yahan ginti tay hai — aur pass wale page ki tarah
+   isay hero banane ki koshish nahi kar rahe, ye sirf ek khulasa hai. */
+.acct-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.acct-stat {
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  padding: 16px 18px;
+  text-align: center;
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.acct-stat:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.acct-stat .stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  line-height: 1.2;
+}
+
+.acct-stat .stat-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary, #b0b8c8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.acct-stat .stat-icon {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  opacity: 0.4;
+}
+
+/* ---------- Panels ---------- */
+.acct-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.acct-panels .admin-panel {
+  margin-bottom: 0;
+}
+
+.acct-panels h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: var(--text-h, #f0f2f6);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.acct-panels h2 .panel-icon {
+  font-size: 1.1rem;
+  opacity: 0.5;
+}
+
+/* ---------- Profile Fields ---------- */
+.acct-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.acct-field:last-child {
+  margin-bottom: 0;
+}
+
+.acct-field .field-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #6b7a8f);
+  font-weight: 500;
+}
+
+.acct-field .field-value {
+  font-size: 0.95rem;
+  color: var(--text-h, #f0f2f6);
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border, #2a3441);
+}
+
+.acct-field .field-value .field-accent {
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Avatar Section ---------- */
+.acct-avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border, #2a3441);
+  margin-bottom: 18px;
+}
+
+.acct-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border: 2px solid var(--accent-border, rgba(124, 140, 240, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent, #7c8cf0);
+  flex-shrink: 0;
+}
+
+.acct-avatar-info .avatar-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+}
+
+.acct-avatar-info .avatar-email {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.acct-avatar-info .avatar-role {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  color: var(--accent, #7c8cf0);
+  border: 1px solid var(--accent-border, rgba(124, 140, 240, 0.2));
+}
+
+/* ---------- Actions ---------- */
+.acct-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+.acct-actions .btn {
+  min-width: 100px;
+}
+
+/* ---------- Note ---------- */
+.acct-note {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border, #2a3441);
+  font-size: 0.82rem;
+  color: var(--text-secondary, #b0b8c8);
+  opacity: 0.7;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .acct {
+    padding: 0 12px;
+  }
+
+  .acct-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .acct-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .acct-stat {
+    padding: 14px 12px;
+  }
+
+  .acct-stat .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .acct-stat .stat-label {
+    font-size: 0.62rem;
+  }
+
+  .acct-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .acct-avatar-info .avatar-name {
+    font-size: 1rem;
+  }
+
+  .acct-avatar-info .avatar-email {
+    font-size: 0.8rem;
+  }
+
+  .acct-panels h2 {
+    font-size: 0.95rem;
+  }
+
+  .acct-field .field-value {
+    font-size: 0.88rem;
+  }
+
+  .acct-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .acct-actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .acct {
+    padding: 0 8px;
+  }
+
+  .acct-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .acct-header .acct-sub {
+    font-size: 0.82rem;
+  }
+
+  .acct-stats {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .acct-stat {
+    padding: 10px 8px;
+  }
+
+  .acct-stat .stat-number {
+    font-size: 1rem;
+  }
+
+  .acct-stat .stat-label {
+    font-size: 0.55rem;
+  }
+
+  .acct-stat .stat-icon {
+    font-size: 0.9rem;
+  }
+
+  .acct-avatar-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .acct-avatar {
+    width: 56px;
+    height: 56px;
+    font-size: 1.3rem;
+  }
+
+  .acct-avatar-info .avatar-name {
+    font-size: 0.95rem;
+  }
+
+  .acct-avatar-info .avatar-email {
+    font-size: 0.75rem;
+  }
+
+  .acct-avatar-info .avatar-role {
+    font-size: 0.55rem;
+    padding: 1px 10px;
+  }
+
+  .acct-panels {
+    gap: 14px;
+  }
+
+  .acct-panels h2 {
+    font-size: 0.88rem;
+  }
+
+  .acct-field {
+    margin-bottom: 10px;
+  }
+
+  .acct-field .field-label {
+    font-size: 0.62rem;
+  }
+
+  .acct-field .field-value {
+    font-size: 0.82rem;
+    padding: 4px 0;
+  }
+
+  .acct-actions {
+    gap: 8px;
+    padding-top: 10px;
+  }
+
+  .acct-actions .btn {
+    font-size: 0.82rem;
+    padding: 8px 14px;
+  }
+
+  .acct-note {
+    font-size: 0.72rem;
+    margin-top: 14px;
+    padding-top: 12px;
+  }
+}

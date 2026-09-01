@@ -1,0 +1,483 @@
+/* ============================================
+   MY REGISTRATIONS STYLES - Soft Dark Theme
+   ============================================ */
+
+.regs {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Header ---------- */
+.regs-header {
+  margin-bottom: 24px;
+}
+
+.regs-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  margin: 0 0 4px;
+  letter-spacing: -0.02em;
+}
+
+.regs-header .regs-sub {
+  color: var(--text-secondary, #b0b8c8);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* ---------- Registration List ---------- */
+.reg-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---------- Registration Item ---------- */
+.reg {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--border, #2a3441);
+  border-left: 4px solid var(--accent-border, rgba(124, 140, 240, 0.35));
+  border-radius: var(--radius-lg, 12px);
+  text-align: left;
+  background: var(--bg-card, #1a222d);
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.reg:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.reg[data-state="Cancelled"] {
+  border-left-color: var(--border, #2a3441);
+  opacity: 0.55;
+}
+
+.reg[data-state="Cancelled"]:hover {
+  opacity: 0.7;
+}
+
+/* ---------- Date Rail ---------- */
+.reg-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 18px;
+  border-right: 1px solid var(--border, #2a3441);
+  min-width: 44px;
+}
+
+.reg-day {
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text-h, #f0f2f6);
+  letter-spacing: -0.02em;
+}
+
+.reg-month {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--accent, #7c8cf0);
+  text-transform: uppercase;
+}
+
+.reg-year {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary, #b0b8c8);
+  opacity: 0.6;
+}
+
+/* ---------- Registration Body ---------- */
+.reg-body {
+  min-width: 0;
+}
+
+.reg-state {
+  display: block;
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-secondary, #b0b8c8);
+  margin-bottom: 4px;
+  opacity: 0.7;
+}
+
+.reg[data-state="Cancelled"] .reg-state {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.reg-state-confirmed {
+  color: var(--status-available, #34d399);
+  opacity: 1;
+}
+
+.reg-state-pending {
+  color: var(--status-reserved, #fbbf24);
+  opacity: 1;
+}
+
+.reg-state-cancelled {
+  color: var(--danger, #f87171);
+  opacity: 0.6;
+}
+
+.reg-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0 0 3px;
+  color: var(--text-h, #f0f2f6);
+  transition: color var(--transition-fast, 150ms) ease;
+}
+
+.reg:hover .reg-title {
+  color: var(--accent, #7c8cf0);
+}
+
+.reg-sub {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary, #b0b8c8);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.reg-sub .reg-ticket {
+  display: inline-block;
+  padding: 1px 10px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  color: var(--accent, #7c8cf0);
+  border: 1px solid var(--accent-border, rgba(124, 140, 240, 0.2));
+}
+
+/* ---------- Registration Actions ---------- */
+.reg-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.reg-actions .reg-status-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.reg-actions .reg-status-badge.confirmed {
+  background: rgba(52, 211, 153, 0.1);
+  color: var(--status-available, #34d399);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+}
+
+.reg-actions .reg-status-badge.pending {
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--status-reserved, #fbbf24);
+  border: 1px solid rgba(251, 191, 36, 0.15);
+}
+
+.reg-actions .reg-status-badge.cancelled {
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--danger, #f87171);
+  border: 1px solid rgba(248, 113, 113, 0.15);
+}
+
+/* .admin-link ek <a> ke liye bana tha; button par border aur background hata
+   dena parta hai warna wo button jaisa hi lagta rehta hai. */
+.reg-actions .admin-link {
+  border: none;
+  background: none;
+  padding: 4px 8px;
+  font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--accent, #7c8cf0);
+  transition: all var(--transition-fast, 150ms) ease;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.reg-actions .admin-link:hover {
+  color: var(--accent-hover, #959ff5);
+  background: var(--accent-bg, rgba(124, 140, 240, 0.06));
+  text-decoration: underline;
+}
+
+.reg-actions .admin-link-danger {
+  color: var(--danger, #f87171);
+}
+
+.reg-actions .admin-link-danger:hover {
+  color: #ef4444;
+  background: rgba(248, 113, 113, 0.06);
+}
+
+/* ---------- Confirm Dialog ---------- */
+.reg-confirm {
+  margin-bottom: 18px;
+  font-size: 0.92rem;
+  color: var(--text-secondary, #b0b8c8);
+  line-height: 1.6;
+}
+
+.reg-confirm strong {
+  color: var(--text-h, #f0f2f6);
+}
+
+.reg-confirm .confirm-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.reg-confirm-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Empty State ---------- */
+.regs-empty {
+  text-align: center;
+  padding: 48px 24px;
+  border: 1px dashed var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--bg-secondary, #161d27);
+}
+
+.regs-empty .empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  opacity: 0.3;
+}
+
+.regs-empty h3 {
+  color: var(--text-h, #f0f2f6);
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.regs-empty p {
+  color: var(--text-secondary, #b0b8c8);
+  margin: 0 0 16px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .regs {
+    padding: 0 12px;
+  }
+
+  .regs-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .reg {
+    padding: 14px 14px;
+    gap: 12px;
+  }
+
+  .reg-day {
+    font-size: 1.3rem;
+  }
+
+  .reg-month {
+    font-size: 0.55rem;
+  }
+
+  .reg-year {
+    font-size: 0.5rem;
+  }
+
+  .reg-title {
+    font-size: 0.95rem;
+  }
+
+  .reg-actions .admin-link {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .reg {
+    grid-template-columns: 56px 1fr;
+    row-gap: 10px;
+    padding: 14px 14px;
+  }
+
+  .reg-rail {
+    padding-right: 12px;
+    min-width: 36px;
+  }
+
+  .reg-day {
+    font-size: 1.1rem;
+  }
+
+  .reg-month {
+    font-size: 0.5rem;
+  }
+
+  .reg-year {
+    font-size: 0.45rem;
+  }
+
+  .reg-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border, #2a3441);
+    flex-wrap: wrap;
+  }
+
+  .reg-actions .reg-status-badge {
+    font-size: 0.58rem;
+    padding: 1px 10px;
+  }
+
+  .reg-actions .admin-link {
+    font-size: 0.75rem;
+  }
+
+  .reg-title {
+    font-size: 0.88rem;
+  }
+
+  .reg-sub {
+    font-size: 0.65rem;
+  }
+
+  .reg-sub .reg-ticket {
+    font-size: 0.55rem;
+    padding: 0 8px;
+  }
+
+  .reg-confirm {
+    font-size: 0.85rem;
+  }
+
+  .reg-confirm-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .reg-confirm-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .regs {
+    padding: 0 8px;
+  }
+
+  .reg {
+    grid-template-columns: 44px 1fr;
+    padding: 12px 10px;
+    gap: 8px;
+    border-left-width: 3px;
+  }
+
+  .reg-rail {
+    padding-right: 8px;
+    min-width: 30px;
+  }
+
+  .reg-day {
+    font-size: 0.95rem;
+  }
+
+  .reg-month {
+    font-size: 0.42rem;
+  }
+
+  .reg-year {
+    font-size: 0.38rem;
+  }
+
+  .reg-state {
+    font-size: 0.55rem;
+  }
+
+  .reg-title {
+    font-size: 0.8rem;
+  }
+
+  .reg-sub {
+    font-size: 0.6rem;
+  }
+
+  .reg-sub .reg-ticket {
+    font-size: 0.5rem;
+    padding: 0 6px;
+  }
+
+  .reg-actions {
+    gap: 8px;
+  }
+
+  .reg-actions .reg-status-badge {
+    font-size: 0.5rem;
+    padding: 1px 8px;
+  }
+
+  .reg-actions .admin-link {
+    font-size: 0.68rem;
+  }
+
+  .regs-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .regs-header .regs-sub {
+    font-size: 0.82rem;
+  }
+
+  .regs-empty {
+    padding: 32px 16px;
+  }
+
+  .regs-empty .empty-icon {
+    font-size: 2rem;
+  }
+
+  .regs-empty h3 {
+    font-size: 0.95rem;
+  }
+
+  .regs-empty p {
+    font-size: 0.82rem;
+  }
+}

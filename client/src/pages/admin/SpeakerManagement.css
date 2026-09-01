@@ -1,0 +1,407 @@
+/* ============================================
+   SPEAKER MANAGEMENT STYLES - Soft Dark Theme
+   ============================================
+
+   Speaker-specific styles. Header, filters, buttons, empty and error states
+   all come from styles/admin.css.
+   ============================================ */
+
+/* ---------- Speaker Grid ---------- */
+.speaker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+/* ---------- Speaker Card ---------- */
+.speaker-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 22px;
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--bg-card, #1a222d);
+  transition: all var(--transition-base, 250ms) ease;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.speaker-card:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow, 0 10px 15px -3px rgba(0, 0, 0, 0.45));
+}
+
+/* ---------- Card Top ---------- */
+.speaker-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* ---------- Avatar ---------- */
+/* Initials fallback and the real photo share the same box so the layout
+   doesn't shift depending on whether a photo exists. */
+.speaker-avatar,
+.speaker-avatar-img {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.speaker-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border: 2px solid var(--accent-border, rgba(124, 140, 240, 0.3));
+  color: var(--accent, #7c8cf0);
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.speaker-avatar-img {
+  object-fit: cover;
+  border: 2px solid var(--border, #2a3441);
+  transition: border-color var(--transition-fast, 150ms) ease;
+}
+
+.speaker-card:hover .speaker-avatar-img {
+  border-color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Identity ---------- */
+.speaker-identity {
+  min-width: 0;
+  flex: 1;
+}
+
+.speaker-name {
+  margin: 0 0 2px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  overflow-wrap: anywhere;
+  transition: color var(--transition-fast, 150ms) ease;
+}
+
+.speaker-card:hover .speaker-name {
+  color: var(--accent, #7c8cf0);
+}
+
+.speaker-role {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #b0b8c8);
+  font-weight: 500;
+}
+
+.speaker-company {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary, #b0b8c8);
+  opacity: 0.75;
+}
+
+.speaker-email {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--accent, #7c8cf0);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color var(--transition-fast, 150ms) ease;
+}
+
+.speaker-email:hover {
+  color: var(--accent-hover, #959ff5);
+  text-decoration: underline;
+}
+
+/* ---------- Bio ---------- */
+/* Bios vary wildly in length; clamping to three lines keeps every card in
+   the grid the same height. */
+.speaker-bio {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #b0b8c8);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  opacity: 0.85;
+}
+
+/* ---------- Card Footer ---------- */
+.speaker-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  /* margin-top auto pins the footer to the bottom of the tallest card. */
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+.speaker-event {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  overflow-wrap: anywhere;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.speaker-event .event-icon {
+  font-size: 0.85rem;
+  opacity: 0.5;
+}
+
+.speaker-card-footer .speaker-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Modal Form ---------- */
+.speaker-form-grid {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.speaker-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.speaker-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.speaker-field-full {
+  grid-column: 1 / -1;
+}
+
+.speaker-field > span {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+}
+
+.speaker-field > span .required {
+  color: var(--danger, #f87171);
+  margin-left: 2px;
+}
+
+/* .admin-search is capped at 320px for the filter bar; inside the modal the
+   fields should fill the width. The textarea borrows the same class. */
+.speaker-field .admin-search,
+.speaker-field .admin-select {
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.speaker-field textarea.admin-search {
+  resize: vertical;
+  line-height: 1.5;
+  min-height: 80px;
+}
+
+.speaker-readonly {
+  margin: 0;
+  padding: 9px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #b0b8c8);
+  border-bottom: 1px dashed var(--border, #2a3441);
+}
+
+/* ---------- Modal Actions ---------- */
+.speaker-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+/* ---------- Speaker Stats ---------- */
+.speaker-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.speaker-stat {
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  padding: 16px 18px;
+  text-align: center;
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.speaker-stat:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.speaker-stat .stat-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  line-height: 1.2;
+}
+
+.speaker-stat .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #b0b8c8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .speaker-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .speaker-card {
+    padding: 16px 18px;
+  }
+
+  .speaker-avatar,
+  .speaker-avatar-img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .speaker-name {
+    font-size: 0.95rem;
+  }
+
+  .speaker-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .speaker-speaker-form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .speaker-field-full {
+    grid-column: auto;
+  }
+
+  .speaker-modal-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .speaker-modal-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .speaker-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .speaker-card {
+    padding: 14px 16px;
+  }
+
+  .speaker-card-top {
+    gap: 10px;
+  }
+
+  .speaker-avatar,
+  .speaker-avatar-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .speaker-avatar {
+    font-size: 0.9rem;
+  }
+
+  .speaker-name {
+    font-size: 0.9rem;
+  }
+
+  .speaker-role {
+    font-size: 0.78rem;
+  }
+
+  .speaker-company {
+    font-size: 0.75rem;
+  }
+
+  .speaker-email {
+    font-size: 0.72rem;
+  }
+
+  .speaker-bio {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .speaker-event {
+    font-size: 0.72rem;
+  }
+
+  .speaker-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .speaker-card-footer .speaker-actions {
+    justify-content: flex-start;
+  }
+
+  .speaker-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .speaker-stat {
+    padding: 12px 12px;
+  }
+
+  .speaker-stat .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .speaker-stat .stat-label {
+    font-size: 0.65rem;
+  }
+
+  .speaker-field > span {
+    font-size: 0.78rem;
+  }
+
+  .speaker-form-grid {
+    gap: 10px;
+  }
+}

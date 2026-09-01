@@ -1,0 +1,308 @@
+/* ============================================
+   INQUIRIES MANAGEMENT STYLES - Soft Dark Theme
+   ============================================
+
+   Inquiries-specific styles. Stats grid, filters, badges, links aur
+   loading/error/empty states sab styles/admin.css se aate hain.
+   ============================================ */
+
+/* ---------- Summary Stats ---------- */
+.inquiries-summary {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  margin-bottom: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.inquiries-summary .admin-stat-card {
+  margin-bottom: 0;
+}
+
+/* ---------- Inquiries List ---------- */
+/* Paighaam kitne lambe honge, pata nahi. Table unhein kuchal deta, is liye
+   cards — Feedback page ki tarah, wohi wajah. */
+.inquiries-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Inquiry Card ---------- */
+.inquiry-card {
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--bg-card, #1a222d);
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.inquiry-card:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow, 0 10px 15px -3px rgba(0, 0, 0, 0.45));
+}
+
+/* Jawab ka muntazir paighaam. Baayein taraf ki motti lakeer se card ek nazar
+   mein alag dikhta hai — badge parhne ki zaroorat nahi parti. */
+.inquiry-card-new {
+  border-left: 4px solid var(--accent, #7c8cf0);
+  background: var(--bg-card-elevated, #202a36);
+}
+
+.inquiry-card-new .inquiry-name {
+  color: var(--accent, #7c8cf0);
+}
+
+/* Archived: nazar se hata nahi, magar peeche chala gaya. */
+.inquiry-card-archived {
+  opacity: 0.5;
+  border-style: dashed;
+  border-color: var(--border, #2a3441);
+}
+
+.inquiry-card-archived:hover {
+  opacity: 0.7;
+}
+
+/* ---------- Card Top ---------- */
+.inquiry-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.inquiry-who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  /* Lamba email badges ko dhakelta hai. min-width: 0 flex item ko sikurne ki
+     ijazat deta hai — warna flex ki default min-width auto use se rok deti
+     hai aur card ka layout toot jata hai. */
+  min-width: 0;
+  flex: 1;
+}
+
+.inquiry-name {
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  font-size: 0.95rem;
+}
+
+.inquiry-email {
+  font-size: 0.8rem;
+  color: var(--accent, #7c8cf0);
+  text-decoration: none;
+  /* Sirf email par click ho, poori chauri qatar par nahi. */
+  width: fit-content;
+  overflow-wrap: anywhere;
+  transition: color var(--transition-fast, 150ms) ease;
+}
+
+.inquiry-email:hover {
+  color: var(--accent-hover, #959ff5);
+  text-decoration: underline;
+}
+
+/* ---------- Badges ---------- */
+.inquiry-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+/* .admin-badge sirf pill ki shakal deta hai — rang yahan se aana hai. */
+.inquiry-subject {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border: 1px solid var(--accent-border, rgba(124, 140, 240, 0.3));
+  color: var(--accent, #7c8cf0);
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.inquiry-status-new {
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--status-available, #34d399);
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.inquiry-status-archived {
+  background: var(--bg-secondary, #161d27);
+  border: 1px solid var(--border, #2a3441);
+  color: var(--text-secondary, #b0b8c8);
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Meta ---------- */
+.inquiry-meta {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.inquiry-account {
+  color: var(--accent, #7c8cf0);
+}
+
+.inquiry-anon {
+  color: var(--text-secondary, #b0b8c8);
+  opacity: 0.6;
+}
+
+/* ---------- Message ---------- */
+.inquiry-message {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-h, #f0f2f6);
+  /* Koi bhi bina space ka lamba lafz ya URL card ko phaar sakta hai. */
+  overflow-wrap: anywhere;
+  /* Form ka textarea newlines ki ijazat deta hai, aur banda paragraph tor kar
+     likhta hai. Bina is ke sab kuch ek hi lambi lakeer ban jata hai. */
+  white-space: pre-wrap;
+  padding: 8px 12px;
+  background: var(--bg-secondary, #161d27);
+  border-radius: var(--radius-sm, 4px);
+  border-left: 2px solid var(--border, #2a3441);
+}
+
+/* ---------- Card Actions ---------- */
+.inquiry-card-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  /* margin-top: auto se actions hamesha card ke neeche chipke rehte hain,
+     chahe ek card ka paighaam chhota ho aur baaju wale ka bara. */
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .inquiries-summary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .inquiries-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .inquiry-card {
+    padding: 16px 18px;
+  }
+
+  .inquiry-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .inquiry-badges {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .inquiry-name {
+    font-size: 0.9rem;
+  }
+
+  .inquiry-message {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .inquiry-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .inquiry-card-actions .admin-link {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .inquiries-summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .inquiry-card {
+    padding: 14px 14px;
+  }
+
+  .inquiry-who {
+    width: 100%;
+  }
+
+  .inquiry-name {
+    font-size: 0.85rem;
+  }
+
+  .inquiry-email {
+    font-size: 0.72rem;
+  }
+
+  .inquiry-subject,
+  .inquiry-status-new,
+  .inquiry-status-archived {
+    font-size: 0.55rem;
+    padding: 1px 8px;
+  }
+
+  .inquiry-meta {
+    font-size: 0.7rem;
+    gap: 6px;
+  }
+
+  .inquiry-message {
+    font-size: 0.82rem;
+    padding: 6px 8px;
+    line-height: 1.5;
+  }
+
+  .inquiry-card-actions {
+    gap: 6px;
+  }
+
+  .inquiry-card-actions .admin-link {
+    font-size: 0.78rem;
+  }
+
+  /* New inquiry card on mobile */
+  .inquiry-card-new {
+    border-left-width: 3px;
+  }
+}

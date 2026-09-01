@@ -1,0 +1,507 @@
+/* ============================================
+   EXHIBITOR LAYOUT STYLES - Soft Dark Theme
+   ============================================
+
+   Exhibitor portal ki theme.
+
+   Yahan ek bhi component style dobara nahi likhi gayi — sirf teen variables
+   override hue hain. Kyunki admin.css aur Sidebar.css apne rang var(--accent)
+   se lete hain, is wrapper ke andar ka har button, badge, stat card aur active
+   nav link khud teal ho jata hai. Yehi CSS custom properties ki asli taaqat
+   hai: rang ek jagah badla, asar poore portal par.
+
+   Admin banafshai (#aa3bff) hai, exhibitor teal — aur teal is palette mein
+   ajnabi nahi, --status-available pehle se #1e8e6c hai.
+   ============================================ */
+
+.exhibitor-portal {
+  /* Teal accent - professional and trustworthy for exhibitors */
+  --accent: #2dd4bf;
+  --accent-hover: #5eead4;
+  --accent-bg: rgba(45, 212, 191, 0.12);
+  --accent-border: rgba(45, 212, 191, 0.35);
+  --accent-border-hover: rgba(45, 212, 191, 0.55);
+
+  /* Portal specific backgrounds */
+  --portal-bg: #0d1418;
+  --portal-bg-card: #162026;
+  --portal-bg-card-elevated: #1d2a32;
+  --portal-border: #24303a;
+
+  /* Status colors for exhibitor portal */
+  --status-active: #2dd4bf;
+  --status-active-bg: rgba(45, 212, 191, 0.12);
+  --status-pending: #f59e0b;
+  --status-pending-bg: rgba(245, 158, 11, 0.12);
+  --status-inactive: #6b7a8f;
+  --status-inactive-bg: rgba(107, 122, 143, 0.12);
+}
+
+/* Light theme — deeper teal for contrast on a white portal background */
+[data-theme="light"] .exhibitor-portal {
+  --accent: #0f766e;
+  --accent-hover: #0d9488;
+  --accent-bg: rgba(15, 118, 110, 0.08);
+  --accent-border: rgba(15, 118, 110, 0.3);
+  --accent-border-hover: rgba(15, 118, 110, 0.5);
+
+  --portal-bg: #f5faf9;
+  --portal-bg-card: #ffffff;
+  --portal-bg-card-elevated: #ffffff;
+  --portal-border: #d9e6e4;
+
+  --status-active: #0f766e;
+  --status-active-bg: rgba(15, 118, 110, 0.1);
+  --status-pending: #b45309;
+  --status-pending-bg: rgba(180, 83, 9, 0.1);
+  --status-inactive: #64748b;
+  --status-inactive-bg: rgba(100, 116, 139, 0.1);
+}
+
+/* ---------- Portal Container ---------- */
+.exhibitor-portal {
+  min-height: 100vh;
+  background: var(--portal-bg, #0d1418);
+  color: var(--text, #b0b8c8);
+  transition: background var(--transition-base, 250ms ease);
+}
+
+/* ---------- Sidebar Override ---------- */
+/* Sidebar par ek baareek teal patti — portal ki pehchan bilkul kinare se. */
+.exhibitor-portal .sidebar {
+  border-right-color: var(--accent-border);
+  background: var(--portal-bg-card, #162026);
+}
+
+.exhibitor-portal .sidebar-link-active {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+.exhibitor-portal .sidebar-link-active::before {
+  background: var(--accent);
+}
+
+.exhibitor-portal .sidebar-link:hover {
+  background: var(--accent-bg);
+  color: var(--text-h, #f0f2f6);
+}
+
+.exhibitor-portal .sidebar-link:hover .sidebar-icon {
+  color: var(--accent);
+}
+
+.exhibitor-portal .sidebar-brand {
+  border-bottom-color: var(--accent-border);
+}
+
+.exhibitor-portal .sidebar-brand .brand-accent {
+  color: var(--accent);
+}
+
+.exhibitor-portal .sidebar-subtitle {
+  color: var(--accent);
+}
+
+/* ---------- Portal Header ---------- */
+.exhibitor-portal-header {
+  background: var(--portal-bg-card, #162026);
+  border-bottom: 1px solid var(--portal-border, #24303a);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.exhibitor-portal-header .header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-h, #f0f2f6);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.exhibitor-portal-header .header-title .header-icon {
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+.exhibitor-portal-header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------- Portal Content ---------- */
+.exhibitor-portal-content {
+  padding: 28px 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ---------- Exhibitor Title ---------- */
+.exhibitor-title {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-secondary, #b0b8c8);
+  margin: 0 0 14px;
+  opacity: 0.8;
+}
+
+.exhibitor-title .title-accent {
+  color: var(--accent);
+}
+
+/* ---------- Stats Cards (Exhibitor Specific) ---------- */
+.exhibitor-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.exhibitor-stat-card {
+  background: var(--portal-bg-card, #162026);
+  border: 1px solid var(--portal-border, #24303a);
+  border-radius: var(--radius-lg, 12px);
+  padding: 20px 22px;
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.exhibitor-stat-card:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow, 0 10px 15px -3px rgba(0, 0, 0, 0.45));
+}
+
+.exhibitor-stat-card .stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  letter-spacing: -0.02em;
+}
+
+.exhibitor-stat-card .stat-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary, #b0b8c8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.exhibitor-stat-card .stat-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  opacity: 0.6;
+  color: var(--accent);
+}
+
+/* ---------- Booth Status Badges ---------- */
+.exhibitor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.exhibitor-badge-active {
+  background: var(--status-active-bg);
+  color: var(--status-active);
+}
+
+.exhibitor-badge-pending {
+  background: var(--status-pending-bg);
+  color: var(--status-pending);
+}
+
+.exhibitor-badge-inactive {
+  background: var(--status-inactive-bg);
+  color: var(--status-inactive);
+}
+
+.exhibitor-badge .badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.exhibitor-badge-active .badge-dot {
+  background: var(--status-active);
+}
+
+.exhibitor-badge-pending .badge-dot {
+  background: var(--status-pending);
+}
+
+.exhibitor-badge-inactive .badge-dot {
+  background: var(--status-inactive);
+}
+
+/* ---------- Focus States ---------- */
+.exhibitor-portal a:focus-visible,
+.exhibitor-portal button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm, 4px);
+}
+
+/* ---------- Buttons in Exhibitor Portal ---------- */
+.exhibitor-portal .btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.exhibitor-portal .btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.exhibitor-portal .btn-outline {
+  border-color: var(--portal-border, #24303a);
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.exhibitor-portal .btn-outline:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+
+/* ---------- Forms in Exhibitor Portal ---------- */
+.exhibitor-portal .form-control {
+  background: var(--portal-bg, #0d1418);
+  border-color: var(--portal-border, #24303a);
+  color: var(--text-h, #f0f2f6);
+}
+
+.exhibitor-portal .form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.exhibitor-portal .form-control::placeholder {
+  color: var(--text-muted, #6b7a8f);
+}
+
+/* ---------- Cards in Exhibitor Portal ---------- */
+.exhibitor-portal .card {
+  background: var(--portal-bg-card, #162026);
+  border: 1px solid var(--portal-border, #24303a);
+}
+
+.exhibitor-portal .card:hover {
+  border-color: var(--accent-border);
+}
+
+.exhibitor-portal .card .card-title {
+  color: var(--text-h, #f0f2f6);
+}
+
+.exhibitor-portal .card .card-subtitle {
+  color: var(--text-secondary, #b0b8c8);
+}
+
+/* ---------- Tables in Exhibitor Portal ---------- */
+.exhibitor-portal .table-wrapper {
+  background: var(--portal-bg-card, #162026);
+  border-color: var(--portal-border, #24303a);
+}
+
+.exhibitor-portal .table thead {
+  background: var(--portal-bg, #0d1418);
+}
+
+.exhibitor-portal .table th {
+  color: var(--text-secondary, #b0b8c8);
+  border-bottom-color: var(--portal-border, #24303a);
+}
+
+.exhibitor-portal .table td {
+  border-bottom-color: var(--portal-border, #24303a);
+  color: var(--text-h, #f0f2f6);
+}
+
+.exhibitor-portal .table tbody tr:hover {
+  background: var(--accent-bg);
+}
+
+/* ---------- Empty State ---------- */
+.exhibitor-portal .empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.exhibitor-portal .empty-state .empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+.exhibitor-portal .empty-state h3 {
+  color: var(--text-h, #f0f2f6);
+  margin-bottom: 8px;
+}
+
+.exhibitor-portal .empty-state p {
+  color: var(--text-muted, #6b7a8f);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ---------- Loading State ---------- */
+.exhibitor-portal .loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.exhibitor-portal .loading-spinner .spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--portal-border, #24303a);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .exhibitor-portal-content {
+    padding: 24px 20px;
+  }
+
+  .exhibitor-stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .exhibitor-portal-header {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .exhibitor-portal-header .header-actions {
+    flex-wrap: wrap;
+  }
+
+  .exhibitor-portal-content {
+    padding: 20px 16px;
+  }
+
+  .exhibitor-title {
+    font-size: 0.75rem;
+  }
+
+  .exhibitor-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .exhibitor-stat-card {
+    padding: 16px 18px;
+  }
+
+  .exhibitor-stat-card .stat-value {
+    font-size: 1.4rem;
+  }
+
+  .exhibitor-stat-card .stat-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exhibitor-portal-header {
+    padding: 10px 12px;
+  }
+
+  .exhibitor-portal-header .header-title {
+    font-size: 0.95rem;
+  }
+
+  .exhibitor-portal-content {
+    padding: 16px 12px;
+  }
+
+  .exhibitor-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .exhibitor-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .exhibitor-stat-card {
+    padding: 14px 14px;
+  }
+
+  .exhibitor-stat-card .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .exhibitor-stat-card .stat-label {
+    font-size: 0.65rem;
+  }
+
+  .exhibitor-stat-card .stat-icon {
+    font-size: 1.2rem;
+  }
+}
+
+/* ---------- Print Styles ---------- */
+@media print {
+  .exhibitor-portal {
+    background: #fff;
+  }
+
+  .exhibitor-portal .sidebar {
+    display: none;
+  }
+
+  .exhibitor-portal-content {
+    padding: 20px;
+  }
+
+  .exhibitor-stat-card {
+    background: #f5f5f5;
+    border-color: #ddd;
+  }
+
+  .exhibitor-stat-card .stat-value {
+    color: #000;
+  }
+
+  .exhibitor-stat-card .stat-label {
+    color: #666;
+  }
+}

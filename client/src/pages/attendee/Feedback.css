@@ -1,0 +1,400 @@
+/* ============================================
+   FEEDBACK STYLES - Soft Dark Theme
+   ============================================ */
+
+.fb {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Fieldset ---------- */
+.fb-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.fb-fieldset:last-child {
+  margin-bottom: 0;
+}
+
+.fb-legend {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+  padding: 0;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+}
+
+.fb-legend .required {
+  color: var(--danger, #f87171);
+  margin-left: 2px;
+}
+
+/* ---------- Stars ---------- */
+.fb-stars {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.fb-stars .fb-star-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  margin-left: 6px;
+  opacity: 0.7;
+}
+
+/* Asli radio input mojood hai magar nazar nahi aata — clip-path use kiya hai,
+   display:none nahi. display:none input ko keyboard se ghayab kar deta hai aur
+   screen reader se bhi, jo poori mehnat zaya kar deta. */
+.fb-star input,
+.fb-chip input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fb-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.fb-star {
+  position: relative;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--border, #2a3441);
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms) ease;
+  padding: 2px;
+  border-radius: var(--radius-sm, 4px);
+}
+
+/* Chune hue tare ka rang. Naya rang eejaad karne ke bajaye wohi amber liya hai
+   jo booth ke "Reserved" aur schedule ke takraav mein chal raha hai — page par
+   rangon ki tadaad barhana design ko shor bana deta hai. */
+.fb-star[data-on="true"] {
+  color: var(--status-reserved, #fbbf24);
+  transform: scale(1.05);
+}
+
+.fb-stars:hover .fb-star {
+  color: var(--border, #2a3441);
+}
+
+/* Hover par bayen taraf ke saare tare bhar jate hain. Ye CSS ka chhota jadoo
+   hai: hover kiye hue tare ke baad wale (~) khaali reh jate hain, is liye
+   pehle sab bhar kar phir unhein khali karte hain. */
+.fb-stars:hover .fb-star:hover,
+.fb-stars:hover .fb-star:hover ~ .fb-star {
+  color: var(--status-reserved, #fbbf24);
+}
+
+.fb-stars:hover .fb-star:hover ~ .fb-star {
+  color: var(--border, #2a3441);
+}
+
+.fb-star:focus-within {
+  outline: 2px solid var(--accent, #7c8cf0);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.fb-star:active {
+  transform: scale(0.9);
+}
+
+/* ---------- Chips ---------- */
+.fb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fb-chip {
+  position: relative;
+  padding: 6px 16px;
+  border: 1.5px solid var(--border, #2a3441);
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.82rem;
+  color: var(--text-secondary, #b0b8c8);
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms) ease;
+  background: var(--bg-input, #131a24);
+  font-family: var(--sans, 'Inter', system-ui, sans-serif);
+}
+
+.fb-chip:hover {
+  border-color: var(--border-light, #33405a);
+  color: var(--text-h, #f0f2f6);
+}
+
+.fb-chip[data-on="true"] {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border-color: var(--accent-border, rgba(124, 140, 240, 0.3));
+  color: var(--accent, #7c8cf0);
+}
+
+.fb-chip[data-on="true"]:hover {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.15));
+  border-color: var(--accent-border, rgba(124, 140, 240, 0.5));
+}
+
+.fb-chip:focus-within {
+  outline: 2px solid var(--accent, #7c8cf0);
+  outline-offset: 2px;
+}
+
+.fb-chip:active {
+  transform: scale(0.96);
+}
+
+/* ---------- Textarea ---------- */
+.fb-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  font-size: 0.92rem;
+  font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  color: var(--text-h, #f0f2f6);
+  background: var(--bg-input, #131a24);
+  resize: vertical;
+  min-height: 100px;
+  transition: all var(--transition-fast, 150ms) ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.fb-textarea::placeholder {
+  color: var(--text-muted, #6b7a8f);
+  opacity: 0.7;
+}
+
+.fb-textarea:focus {
+  border-color: var(--accent, #7c8cf0);
+  box-shadow: 0 0 0 3px rgba(124, 140, 240, 0.1);
+  background: var(--bg-card, #1a222d);
+}
+
+.fb-textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Done Message ---------- */
+.fb-done {
+  font-size: 0.95rem;
+  color: var(--text-secondary, #b0b8c8);
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  background: rgba(52, 211, 153, 0.06);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  border-radius: var(--radius-md, 8px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fb-done::before {
+  content: '✓';
+  color: var(--status-available, #34d399);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ---------- Privacy Notice ---------- */
+.fb-privacy {
+  margin: 0 0 20px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #b0b8c8);
+  background: var(--bg-secondary, #161d27);
+  border-left: 3px solid var(--accent, #7c8cf0);
+  border-radius: 0 var(--radius-md, 8px) var(--radius-md, 8px) 0;
+  padding: 10px 16px;
+}
+
+.fb-privacy .privacy-icon {
+  margin-right: 6px;
+}
+
+/* ---------- Actions ---------- */
+.fb-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.fb-actions .btn {
+  min-width: 120px;
+}
+
+/* ---------- Error State ---------- */
+.fb-error {
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  border: 1px solid var(--danger, #f87171);
+  border-radius: var(--radius-md, 8px);
+  color: var(--danger, #f87171);
+  font-size: 0.85rem;
+  background: rgba(248, 113, 113, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fb-error::before {
+  content: '✕';
+  font-weight: 700;
+}
+
+/* ---------- Success State ---------- */
+.fb-success {
+  text-align: center;
+  padding: 48px 24px;
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: var(--radius-lg, 12px);
+  background: rgba(52, 211, 153, 0.04);
+}
+
+.fb-success .success-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.fb-success h3 {
+  color: var(--text-h, #f0f2f6);
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.fb-success p {
+  color: var(--text-secondary, #b0b8c8);
+  margin: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .fb {
+    padding: 0 12px;
+  }
+
+  .fb-star {
+    font-size: 1.7rem;
+  }
+
+  .fb-fieldset {
+    margin-bottom: 20px;
+  }
+
+  .fb-legend {
+    font-size: 0.78rem;
+  }
+
+  .fb-chip {
+    font-size: 0.78rem;
+    padding: 5px 12px;
+  }
+
+  .fb-textarea {
+    font-size: 0.88rem;
+    padding: 10px 14px;
+  }
+
+  .fb-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fb-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .fb {
+    padding: 0 8px;
+  }
+
+  .fb-star {
+    font-size: 1.5rem;
+    padding: 1px;
+  }
+
+  .fb-stars {
+    gap: 4px;
+  }
+
+  .fb-stars .fb-star-label {
+    font-size: 0.7rem;
+  }
+
+  .fb-fieldset {
+    margin-bottom: 16px;
+  }
+
+  .fb-legend {
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+  }
+
+  .fb-chip {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+
+  .fb-chips {
+    gap: 6px;
+  }
+
+  .fb-textarea {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    min-height: 80px;
+  }
+
+  .fb-done {
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+
+  .fb-privacy {
+    font-size: 0.75rem;
+    padding: 8px 12px;
+  }
+
+  .fb-error {
+    font-size: 0.78rem;
+    padding: 8px 12px;
+  }
+
+  .fb-success {
+    padding: 32px 16px;
+  }
+
+  .fb-success .success-icon {
+    font-size: 2.5rem;
+  }
+
+  .fb-success h3 {
+    font-size: 1rem;
+  }
+
+  .fb-success p {
+    font-size: 0.85rem;
+  }
+}

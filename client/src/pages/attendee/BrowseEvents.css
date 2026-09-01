@@ -1,0 +1,372 @@
+/* ============================================
+   BROWSE EVENTS STYLES - Soft Dark Theme
+   ============================================
+
+   Ye page jaan bujh kar khamosh hai. Portal ka signature dashboard ka pass hai;
+   agar yahan bhi wohi zor lagayen to dono ka asar khatam ho jata hai. Sirf
+   typographic zubaan mushtarak rakhi hai — mono micro-labels aur tareekh ka
+   rail.
+   ============================================ */
+
+.browse {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Identity Banner ---------- */
+.browse-identity {
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md, 8px);
+  background: var(--bg-secondary, #161d27);
+  font-size: 0.86rem;
+  color: var(--text-secondary, #b0b8c8);
+  border: 1px solid var(--border, #2a3441);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.browse-identity .identity-label {
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+}
+
+.browse-identity .identity-value {
+  color: var(--accent, #7c8cf0);
+  font-weight: 500;
+}
+
+/* ---------- Expo List ---------- */
+.expo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---------- Expo Item ---------- */
+.expo {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+  text-align: left;
+  background: var(--bg-card, #1a222d);
+  transition: all var(--transition-base, 250ms) ease;
+}
+
+.expo:hover {
+  border-color: var(--border-light, #33405a);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.expo[data-mine="true"] {
+  border-color: var(--accent-border, rgba(124, 140, 240, 0.35));
+  background: var(--accent-bg, rgba(124, 140, 240, 0.06));
+}
+
+.expo[data-mine="true"]:hover {
+  border-color: var(--accent-border, rgba(124, 140, 240, 0.55));
+}
+
+/* ---------- Date Rail ---------- */
+.expo-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 18px;
+  border-right: 1px solid var(--border, #2a3441);
+  min-width: 44px;
+}
+
+.expo-day {
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text-h, #f0f2f6);
+  letter-spacing: -0.02em;
+}
+
+.expo-month {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--accent, #7c8cf0);
+  text-transform: uppercase;
+}
+
+.expo-year {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary, #b0b8c8);
+  opacity: 0.7;
+}
+
+/* ---------- Expo Body ---------- */
+.expo-body {
+  min-width: 0;
+}
+
+.expo-eyebrow {
+  display: block;
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-secondary, #b0b8c8);
+  margin-bottom: 4px;
+  opacity: 0.7;
+}
+
+.expo-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 3px;
+  color: var(--text-h, #f0f2f6);
+  transition: color var(--transition-fast, 150ms) ease;
+}
+
+.expo:hover .expo-name {
+  color: var(--accent, #7c8cf0);
+}
+
+.expo-where {
+  font-size: 0.86rem;
+  color: var(--text-secondary, #b0b8c8);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.expo-where .location-icon {
+  opacity: 0.5;
+  font-size: 0.8rem;
+}
+
+.expo-flag {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--status-reserved, #fbbf24);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: var(--radius-full, 9999px);
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.15);
+}
+
+/* ---------- Expo Action ---------- */
+.expo-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.expo-done {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent, #7c8cf0);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.expo-done::before {
+  content: '✓';
+  font-weight: 700;
+}
+
+.expo-action .admin-btn {
+  padding: 6px 16px;
+  font-size: 0.82rem;
+}
+
+.expo-action .admin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---------- Browse Modal Actions ---------- */
+.browse-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .browse {
+    padding: 0 12px;
+  }
+
+  .browse-identity {
+    font-size: 0.8rem;
+    padding: 10px 14px;
+  }
+
+  .expo {
+    padding: 14px 14px;
+    gap: 12px;
+  }
+
+  .expo-day {
+    font-size: 1.4rem;
+  }
+
+  .expo-month {
+    font-size: 0.6rem;
+  }
+
+  .expo-year {
+    font-size: 0.55rem;
+  }
+
+  .expo-name {
+    font-size: 0.98rem;
+  }
+
+  .expo-where {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 620px) {
+  /* Teen columns tang par jate hain — button apni line par neeche. */
+  .expo {
+    grid-template-columns: 56px 1fr;
+    row-gap: 10px;
+    padding: 14px 14px;
+  }
+
+  .expo-rail {
+    padding-right: 12px;
+    min-width: 36px;
+  }
+
+  .expo-day {
+    font-size: 1.2rem;
+  }
+
+  .expo-month {
+    font-size: 0.55rem;
+  }
+
+  .expo-year {
+    font-size: 0.5rem;
+  }
+
+  .expo-action {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    padding-top: 6px;
+    border-top: 1px solid var(--border, #2a3441);
+  }
+
+  .expo-name {
+    font-size: 0.9rem;
+  }
+
+  .expo-where {
+    font-size: 0.75rem;
+  }
+
+  .expo-flag {
+    font-size: 0.7rem;
+    padding: 1px 8px;
+  }
+
+  .expo-done {
+    font-size: 0.65rem;
+  }
+
+  .expo-action .admin-btn {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
+
+  .browse-identity {
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 400px) {
+  .browse {
+    padding: 0 8px;
+  }
+
+  .expo {
+    grid-template-columns: 44px 1fr;
+    padding: 12px 10px;
+    gap: 8px;
+  }
+
+  .expo-rail {
+    padding-right: 8px;
+    min-width: 30px;
+  }
+
+  .expo-day {
+    font-size: 1rem;
+  }
+
+  .expo-month {
+    font-size: 0.48rem;
+  }
+
+  .expo-year {
+    font-size: 0.42rem;
+  }
+
+  .expo-eyebrow {
+    font-size: 0.55rem;
+  }
+
+  .expo-name {
+    font-size: 0.82rem;
+  }
+
+  .expo-where {
+    font-size: 0.7rem;
+  }
+
+  .expo-flag {
+    font-size: 0.62rem;
+    padding: 1px 6px;
+  }
+
+  .expo-action {
+    gap: 6px;
+  }
+
+  .expo-action .admin-btn {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+
+  .expo-done {
+    font-size: 0.58rem;
+  }
+}

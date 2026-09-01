@@ -1,0 +1,166 @@
+.event-form {
+  text-align: left;
+}
+
+.event-form-error {
+  background: rgba(201, 75, 75, 0.08);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.event-form-row {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-form-row label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.event-form-row input,
+.event-form-row select,
+.event-form-row textarea {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: var(--sans);
+  color: var(--text-h);
+  background: var(--bg);
+}
+
+.event-form-row input:focus,
+.event-form-row select:focus,
+.event-form-row textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.event-form-row textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.event-form-row input.has-error,
+.event-form-row textarea.has-error {
+  border-color: var(--danger);
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: var(--danger);
+  margin: 0;
+}
+
+.event-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 16px;
+}
+
+@media (max-width: 640px) {
+  .event-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Image picker */
+.event-image-field {
+  margin-top: 4px;
+}
+
+.event-form-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.event-image-picker {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.event-image-preview {
+  /* 16:9 — bilkul wohi shakal jo card par .event-cover ki hai, taake preview
+     jhoot na bole. Warna form mein poori tasveer dikhti aur card par kate hue
+     kinare, aur banda hairan hota. */
+  width: 160px;
+  height: 90px;
+  flex-shrink: 0;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--code-bg);
+}
+
+.event-image-preview img {
+  width: 100%;
+  height: 100%;
+  /* Card par bhi object-fit: cover hai — dono jagah ek jaisi katai. */
+  object-fit: cover;
+  display: block;
+}
+
+.event-image-empty {
+  font-size: 0.78rem;
+  color: var(--text);
+}
+
+.event-image-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Nazar se ojhal, magar mojood. display:none istemaal nahi kiya — us se input
+   focus ke qabil hi nahi rehta aur keyboard wala banda file chun hi nahi
+   sakta. Ye tareeqa use screen readers aur Tab, dono ke liye zinda rakhta hai. */
+.event-image-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.event-image-btn {
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Chhupe input par Tab se focus aaye to halqa label par dikhata hai — warna
+   keyboard wale banda ko pata hi na chalta ke wo kahan khara hai. */
+.event-image-input:focus-visible + .event-image-btn {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.event-image-hint {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text);
+}
+
+.event-image-url-label {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--text);
+}

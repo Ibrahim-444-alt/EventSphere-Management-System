@@ -1,0 +1,449 @@
+/* ============================================
+   FLOOR PLAN STYLES - Soft Dark Theme
+   ============================================
+
+   Floor-plan-specific styles. Layout, panels, filters and empty states all
+   come from styles/admin.css, which AdminLayout already imports.
+   ============================================ */
+
+/* ---------- Summary Stats ---------- */
+.floor-summary {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin-bottom: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.floor-summary .admin-stat-card {
+  margin-bottom: 0;
+}
+
+/* ---------- Legend ---------- */
+.floor-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  color: var(--text-secondary, #b0b8c8);
+  padding: 12px 16px;
+  background: var(--bg-card, #1a222d);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+}
+
+.floor-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.floor-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-sm, 4px);
+  border: 1px solid var(--border, #2a3441);
+}
+
+.floor-swatch-available {
+  background: rgba(52, 211, 153, 0.3);
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.floor-swatch-reserved {
+  background: rgba(251, 191, 36, 0.3);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+.floor-swatch-occupied {
+  background: rgba(107, 122, 143, 0.3);
+  border-color: rgba(107, 122, 143, 0.4);
+}
+
+.floor-swatch-pending {
+  background: var(--bg-secondary, #161d27);
+  border-color: var(--border, #2a3441);
+}
+
+.floor-swatch-maintenance {
+  background: rgba(248, 113, 113, 0.3);
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+/* ---------- Hall ---------- */
+/* The hall itself: one horizontal aisle per booth row. */
+.floor-hall {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px;
+  background: var(--bg-secondary, #161d27);
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-lg, 12px);
+}
+
+.floor-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.floor-row-label {
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  background: var(--bg-card, #1a222d);
+  padding: 4px 0;
+  border-radius: var(--radius-sm, 4px);
+  border: 1px solid var(--border, #2a3441);
+}
+
+/* auto-fill keeps the booths a fixed comfortable size and wraps them,
+   rather than stretching two booths across the whole hall. */
+.floor-row-booths {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 10px;
+}
+
+/* ---------- Booth ---------- */
+.floor-booth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 70px;
+  padding: 8px 6px;
+  border: 2px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  background: var(--bg-card, #1a222d);
+  font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms) ease;
+  position: relative;
+}
+
+.floor-booth:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow, 0 10px 15px -3px rgba(0, 0, 0, 0.45));
+  z-index: 2;
+}
+
+.floor-booth:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.floor-booth-number {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+}
+
+.floor-booth-company {
+  font-size: 0.65rem;
+  line-height: 1.25;
+  opacity: 0.85;
+  overflow-wrap: anywhere;
+  color: var(--text-secondary, #b0b8c8);
+  max-width: 100%;
+}
+
+/* ---------- Status Tints ---------- */
+/* Status tints — same palette as the booths table so both pages agree.
+   These come after .floor-booth so they win on border-color. */
+.floor-booth-available {
+  background: rgba(52, 211, 153, 0.08);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: var(--status-available, #34d399);
+}
+
+.floor-booth-available .floor-booth-number {
+  color: var(--status-available, #34d399);
+}
+
+.floor-booth-reserved {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.3);
+  color: var(--status-reserved, #fbbf24);
+}
+
+.floor-booth-reserved .floor-booth-number {
+  color: var(--status-reserved, #fbbf24);
+}
+
+.floor-booth-occupied {
+  background: rgba(107, 122, 143, 0.1);
+  border-color: rgba(107, 122, 143, 0.3);
+  color: var(--status-occupied, #6b7a8f);
+}
+
+.floor-booth-occupied .floor-booth-number {
+  color: var(--status-occupied, #6b7a8f);
+}
+
+.floor-booth-pending {
+  background: var(--bg-secondary, #161d27);
+  border-color: var(--border, #2a3441);
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.floor-booth-pending .floor-booth-number {
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.floor-booth-maintenance {
+  background: rgba(248, 113, 113, 0.08);
+  border-color: rgba(248, 113, 113, 0.3);
+  color: var(--danger, #f87171);
+}
+
+.floor-booth-maintenance .floor-booth-number {
+  color: var(--danger, #f87171);
+}
+
+/* ---------- Entrance ---------- */
+.floor-entrance {
+  padding: 8px;
+  border: 2px dashed var(--border, #2a3441);
+  border-radius: var(--radius-sm, 4px);
+  text-align: center;
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--text-secondary, #b0b8c8);
+  background: var(--bg-card, #1a222d);
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Booth Detail Modal ---------- */
+.floor-detail {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 20px;
+}
+
+.floor-detail > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border, #2a3441);
+}
+
+.floor-detail > div:last-child {
+  border-bottom: none;
+}
+
+.floor-detail dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary, #b0b8c8);
+  font-weight: 500;
+}
+
+.floor-detail dd {
+  margin: 0;
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+  text-align: right;
+}
+
+.floor-detail-note {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #b0b8c8);
+  padding: 8px 0;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+/* ---------- Status Field in Modal ---------- */
+.floor-status-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.floor-status-field > span {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+}
+
+/* .admin-select is capped at 320px for the filter bar; fill the modal. */
+.floor-status-field .admin-select {
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .floor-summary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .floor-hall {
+    padding: 12px;
+    gap: 14px;
+  }
+
+  .floor-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .floor-row-label {
+    width: 100%;
+    padding: 2px 0;
+    font-size: 0.8rem;
+  }
+
+  .floor-row-booths {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .floor-booth {
+    min-height: 60px;
+    padding: 6px 4px;
+  }
+
+  .floor-booth-number {
+    font-size: 0.75rem;
+  }
+
+  .floor-booth-company {
+    font-size: 0.6rem;
+  }
+
+  .floor-entrance {
+    min-height: 60px;
+    font-size: 0.6rem;
+  }
+
+  .floor-legend {
+    gap: 12px;
+    font-size: 0.72rem;
+    padding: 10px 14px;
+  }
+
+  .floor-swatch {
+    width: 12px;
+    height: 12px;
+  }
+
+  .floor-detail > div {
+    padding: 6px 0;
+  }
+
+  .floor-detail dt {
+    font-size: 0.7rem;
+  }
+
+  .floor-detail dd {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .floor-summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .floor-hall {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .floor-row-booths {
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    gap: 6px;
+  }
+
+  .floor-booth {
+    min-height: 52px;
+    padding: 4px 3px;
+    border-width: 1.5px;
+  }
+
+  .floor-booth-number {
+    font-size: 0.65rem;
+  }
+
+  .floor-booth-company {
+    font-size: 0.5rem;
+  }
+
+  .floor-entrance {
+    min-height: 52px;
+    font-size: 0.5rem;
+    padding: 4px;
+  }
+
+  .floor-row-label {
+    font-size: 0.7rem;
+    padding: 2px 0;
+  }
+
+  .floor-legend {
+    gap: 8px;
+    font-size: 0.65rem;
+    padding: 8px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .floor-swatch {
+    width: 10px;
+    height: 10px;
+  }
+
+  .floor-detail {
+    gap: 8px;
+  }
+
+  .floor-detail > div {
+    padding: 5px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .floor-detail dd {
+    text-align: left;
+  }
+
+  .floor-detail dt {
+    font-size: 0.65rem;
+  }
+
+  .floor-detail dd {
+    font-size: 0.82rem;
+  }
+
+  .floor-detail-note {
+    font-size: 0.75rem;
+  }
+
+  .floor-status-field > span {
+    font-size: 0.75rem;
+  }
+}

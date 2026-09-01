@@ -1,0 +1,338 @@
+/* ============================================
+   EXHIBITOR PROFILE STYLES - Soft Dark Theme
+   ============================================
+
+   Class names par `exhibitor-profile-` ka prefix jaan bujh kar hai: CSS global
+   hoti hai, aur admin/Profile.css pehle se `.profile-*` istemal kar raha hai.
+   Bina prefix ke dono ek doosre par asar daalte.
+   ============================================ */
+
+/* ---------- Container ---------- */
+.exhibitor-profile {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Header ---------- */
+.exhibitor-profile-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.exhibitor-profile-head h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+}
+
+.exhibitor-profile-head .head-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #b0b8c8);
+  margin: 0;
+}
+
+/* ---------- Status Badge ---------- */
+.exhibitor-profile-status {
+  flex-shrink: 0;
+  padding: 5px 16px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid transparent;
+}
+
+/* Rang data-tone se aa rahe hain, alag alag class names se nahi — status ki
+   list badle to JSX ke STATUS_TONES map mein ek line kaafi hai. */
+.exhibitor-profile-status[data-tone="green"] {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.2);
+  color: var(--status-available, #34d399);
+}
+
+.exhibitor-profile-status[data-tone="amber"] {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.2);
+  color: var(--status-reserved, #fbbf24);
+}
+
+.exhibitor-profile-status[data-tone="red"] {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.2);
+  color: var(--danger, #f87171);
+}
+
+.exhibitor-profile-status[data-tone="muted"] {
+  background: var(--bg-secondary, #161d27);
+  border-color: var(--border, #2a3441);
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.exhibitor-profile-status[data-tone="purple"] {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border-color: var(--accent-border, rgba(124, 140, 240, 0.2));
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Avatar Section ---------- */
+.exhibitor-profile-avatar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border, #2a3441);
+  margin-bottom: 20px;
+}
+
+.exhibitor-profile-avatar .avatar-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border: 2px solid var(--accent-border, rgba(124, 140, 240, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent, #7c8cf0);
+  flex-shrink: 0;
+}
+
+.exhibitor-profile-avatar .avatar-info .avatar-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+}
+
+.exhibitor-profile-avatar .avatar-info .avatar-company {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.exhibitor-profile-avatar .avatar-info .avatar-email {
+  font-size: 0.82rem;
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Detail Grid ---------- */
+.exhibitor-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.exhibitor-profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border, #2a3441);
+}
+
+.exhibitor-profile-field .field-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary, #b0b8c8);
+  font-weight: 500;
+}
+
+.exhibitor-profile-field .field-value {
+  font-size: 0.92rem;
+  color: var(--text-h, #f0f2f6);
+  font-weight: 500;
+}
+
+.exhibitor-profile-field .field-value .value-accent {
+  color: var(--accent, #7c8cf0);
+}
+
+/* ---------- Note ---------- */
+.exhibitor-profile-note {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border, #2a3441);
+  font-size: 0.85rem;
+  color: var(--text-secondary, #b0b8c8);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.exhibitor-profile-note .note-icon {
+  font-size: 1rem;
+  opacity: 0.5;
+  margin-top: 2px;
+}
+
+.exhibitor-profile-note-danger {
+  color: var(--danger, #f87171);
+}
+
+.exhibitor-profile-note-success {
+  color: var(--status-available, #34d399);
+}
+
+/* ---------- Actions ---------- */
+.exhibitor-profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+.exhibitor-profile-actions .admin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .exhibitor-profile {
+    padding: 0 12px;
+  }
+
+  .exhibitor-profile-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .exhibitor-profile-head h2 {
+    font-size: 1rem;
+  }
+
+  .exhibitor-profile-avatar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .exhibitor-profile-avatar .avatar-circle {
+    width: 64px;
+    height: 64px;
+    font-size: 1.5rem;
+  }
+
+  .exhibitor-profile-avatar .avatar-info .avatar-name {
+    font-size: 1rem;
+  }
+
+  .exhibitor-profile-avatar .avatar-info .avatar-company {
+    font-size: 0.85rem;
+  }
+
+  .exhibitor-profile-avatar .avatar-info .avatar-email {
+    font-size: 0.78rem;
+  }
+
+  .exhibitor-profile-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .exhibitor-profile-field .field-label {
+    font-size: 0.65rem;
+  }
+
+  .exhibitor-profile-field .field-value {
+    font-size: 0.85rem;
+  }
+
+  .exhibitor-profile-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .exhibitor-profile-actions .admin-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .exhibitor-profile {
+    padding: 0 8px;
+  }
+
+  .exhibitor-profile-head h2 {
+    font-size: 0.95rem;
+  }
+
+  .exhibitor-profile-head .head-sub {
+    font-size: 0.78rem;
+  }
+
+  .exhibitor-profile-status {
+    font-size: 0.65rem;
+    padding: 3px 12px;
+  }
+
+  .exhibitor-profile-avatar .avatar-circle {
+    width: 56px;
+    height: 56px;
+    font-size: 1.3rem;
+  }
+
+  .exhibitor-profile-avatar .avatar-info .avatar-name {
+    font-size: 0.95rem;
+  }
+
+  .exhibitor-profile-avatar .avatar-info .avatar-company {
+    font-size: 0.8rem;
+  }
+
+  .exhibitor-profile-avatar .avatar-info .avatar-email {
+    font-size: 0.72rem;
+  }
+
+  .exhibitor-profile-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .exhibitor-profile-field {
+    padding: 6px 0;
+  }
+
+  .exhibitor-profile-field .field-label {
+    font-size: 0.6rem;
+  }
+
+  .exhibitor-profile-field .field-value {
+    font-size: 0.82rem;
+  }
+
+  .exhibitor-profile-note {
+    font-size: 0.78rem;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .exhibitor-profile-actions {
+    gap: 6px;
+    padding-top: 10px;
+  }
+
+  .exhibitor-profile-actions .admin-btn {
+    font-size: 0.82rem;
+    padding: 8px 14px;
+  }
+}

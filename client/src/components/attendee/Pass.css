@@ -1,0 +1,449 @@
+/* ============================================
+   PASS STYLES - Soft Dark Theme
+   ============================================
+
+   Card apna gehra navy rang dono modes mein rakhta hai. Ye ghalti nahi — pass
+   ek cheez hai, page ka hissa nahi, aur alag rang hi usay cheez banata hai.
+   Isi wajah se dark mode ke liye alag block ki zaroorat bhi nahi parti.
+   ============================================ */
+
+.pass {
+  position: relative;
+  padding: 28px;
+  border-radius: 14px;
+  background: #0f1b30;
+  border: 1px solid rgba(122, 167, 255, 0.16);
+  box-shadow: var(--shadow, 0 10px 15px -3px rgba(0, 0, 0, 0.45));
+  color: #e8ecf5;
+  /* Ye line zaroori hai: tear line ke gol dayere aadhe kat kar kinare par
+     "kaata hua" notch bante hain. Hata dein to notch bahar nikal aate hain. */
+  overflow: hidden;
+  text-align: left;
+  transition: all var(--transition-base, 250ms) ease;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.pass:hover {
+  border-color: rgba(122, 167, 255, 0.3);
+  box-shadow: var(--shadow-lg, 0 20px 25px -5px rgba(0, 0, 0, 0.55));
+  transform: translateY(-2px);
+}
+
+/* ---------- Pass Top ---------- */
+.pass-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Lanyard ka suraakh. Rang page ka background hai, is liye lagta hai ke asal
+   mein aar paar ka chhed hai. */
+.pass-hole {
+  width: 40px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--bg, #11161e);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.pass-brand {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #8ab4ff;
+  font-weight: 600;
+}
+
+.pass-tier {
+  margin-left: auto;
+  padding: 3px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(138, 180, 255, 0.4);
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #8ab4ff;
+  background: rgba(138, 180, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* ---------- Pass Header ---------- */
+.pass-label {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #7d8db0;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+/* clamp() se naam chhoti screen par khud sikur jata hai — media query ki
+   zaroorat nahi. */
+.pass-name {
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: clamp(1.9rem, 5.5vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+}
+
+.pass-org {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #9aa8c6;
+  font-weight: 400;
+}
+
+/* ---------- Tear Line ---------- */
+/* Negative margin line ko card ke kinaron tak khainch deti hai, aur dono
+   pseudo-elements aadhe bahar nikal kar notch bante hain. */
+.pass-tear {
+  position: relative;
+  height: 0;
+  margin: 24px -28px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.pass-tear::before,
+.pass-tear::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg, #11161e);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pass-tear::before {
+  left: -9px;
+}
+
+.pass-tear::after {
+  right: -9px;
+}
+
+/* ---------- Pass Event ---------- */
+.pass-event {
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Pass Meta ---------- */
+.pass-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  margin: 0 0 24px;
+}
+
+.pass-meta dt {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #7d8db0;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.pass-meta dd {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #e8ecf5;
+  font-weight: 500;
+}
+
+/* ---------- Pass Foot ---------- */
+.pass-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pass-code {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: #8ab4ff;
+  background: rgba(138, 180, 255, 0.06);
+  padding: 2px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(138, 180, 255, 0.08);
+}
+
+.pass-when {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #e8ecf5;
+  opacity: 0.8;
+}
+
+/* ---------- Stamp ---------- */
+/* Muhr — is page ka wo ek jorim jo jaan bujh kar liya gaya. Darwaze par muhr
+   lagna asli rivaaj hai, aur ek nazar mein sab keh deta hai. */
+.pass-stamp {
+  position: absolute;
+  right: 18px;
+  bottom: 58px;
+  padding: 6px 16px;
+  border: 2px solid #e2687a;
+  border-radius: 6px;
+  transform: rotate(-9deg);
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #e2687a;
+  opacity: 0.92;
+  pointer-events: none;
+  background: rgba(226, 104, 122, 0.06);
+  box-shadow: 0 2px 8px rgba(226, 104, 122, 0.1);
+  z-index: 1;
+}
+
+/* ---------- Pass Variants ---------- */
+.pass-vip {
+  border-color: rgba(251, 191, 36, 0.25);
+  background: linear-gradient(135deg, #1a1a2e, #0f1b30);
+}
+
+.pass-vip .pass-tier {
+  border-color: #fbbf24;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.pass-vip .pass-stamp {
+  border-color: #fbbf24;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.06);
+}
+
+.pass-premium {
+  border-color: rgba(124, 140, 240, 0.25);
+  background: linear-gradient(135deg, #1a1a3e, #0f1b30);
+}
+
+.pass-premium .pass-tier {
+  border-color: #7c8cf0;
+  color: #7c8cf0;
+  background: rgba(124, 140, 240, 0.08);
+}
+
+.pass-premium .pass-stamp {
+  border-color: #7c8cf0;
+  color: #7c8cf0;
+  background: rgba(124, 140, 240, 0.06);
+}
+
+/* ---------- Animation ---------- */
+/* Ek hi harkat, page khulte waqt. Baqi jagah koi animation nahi — bikhri hui
+   harkat design ko sasta bana deti hai. */
+@media (prefers-reduced-motion: no-preference) {
+  .pass {
+    animation: pass-in 0.45s ease-out both;
+  }
+}
+
+@keyframes pass-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Pass Actions ---------- */
+.pass-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pass-actions-hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #b0b8c8);
+  opacity: 0.7;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 620px) {
+  .pass {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .pass-tear {
+    margin: 22px -22px;
+  }
+
+  .pass-stamp {
+    bottom: 76px;
+    right: 12px;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+  }
+
+  .pass-top {
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .pass-hole {
+    width: 32px;
+    height: 7px;
+  }
+
+  .pass-brand {
+    font-size: 0.65rem;
+  }
+
+  .pass-tier {
+    font-size: 0.6rem;
+    padding: 2px 10px;
+  }
+
+  .pass-event {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .pass-meta {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .pass-meta dd {
+    font-size: 0.85rem;
+  }
+
+  .pass-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .pass-code {
+    font-size: 0.7rem;
+  }
+
+  .pass-when {
+    font-size: 0.7rem;
+  }
+
+  .pass-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pass-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .pass {
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .pass-tear {
+    margin: 18px -18px;
+  }
+
+  .pass-tear::before,
+  .pass-tear::after {
+    width: 14px;
+    height: 14px;
+    top: -7px;
+  }
+
+  .pass-tear::before {
+    left: -7px;
+  }
+  .pass-tear::after {
+    right: -7px;
+  }
+
+  .pass-stamp {
+    bottom: 70px;
+    right: 8px;
+    padding: 3px 10px;
+    font-size: 0.6rem;
+    border-width: 1.5px;
+  }
+
+  .pass-meta {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .pass-name {
+    font-size: clamp(1.5rem, 4vw, 1.9rem);
+  }
+
+  .pass-org {
+    font-size: 0.8rem;
+  }
+
+  .pass-event {
+    font-size: 1rem;
+  }
+
+  .pass-hole {
+    width: 28px;
+    height: 6px;
+  }
+
+  .pass-brand {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+  }
+
+  .pass-tier {
+    font-size: 0.55rem;
+    padding: 2px 8px;
+  }
+
+  .pass-label {
+    font-size: 0.6rem;
+  }
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .pass {
+    animation: none;
+  }
+}

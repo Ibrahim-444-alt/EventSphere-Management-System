@@ -1,0 +1,340 @@
+/* ============================================
+   ATTENDEE MANAGEMENT STYLES - Soft Dark Theme
+   ============================================
+
+   Attendee-specific styles. Table, filters, badges, buttons and states all
+   come from styles/admin.css.
+   ============================================ */
+
+/* ---------- Summary Stats ---------- */
+.attendee-summary {
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  margin-bottom: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.attendee-summary .admin-stat-card {
+  margin-bottom: 0;
+}
+
+/* ---------- Attendee Name & Email ---------- */
+/* Name on top, contact details underneath in one cell — keeps the table
+   narrow enough to read without a horizontal scrollbar. */
+.attendee-name {
+  display: block;
+  font-weight: 600;
+  color: var(--text-h, #f0f2f6);
+  font-size: 0.92rem;
+}
+
+.attendee-email {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-secondary, #b0b8c8);
+  margin-top: 2px;
+}
+
+.attendee-phone {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted, #6b7a8f);
+  margin-top: 1px;
+}
+
+/* ---------- Cancelled Row ---------- */
+/* A cancelled row stays in the table as a record, just visibly retired. */
+.attendee-row-cancelled .attendee-name,
+.attendee-row-cancelled td {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.attendee-row-cancelled .attendee-email {
+  opacity: 0.5;
+}
+
+/* ---------- Ticket Badges ---------- */
+/* .admin-badge only gives the pill shape, so colours live here. */
+.attendee-ticket,
+.attendee-status {
+  border: 1px solid transparent;
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.attendee-ticket-general {
+  background: var(--bg-secondary, #161d27);
+  border-color: var(--border, #2a3441);
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.attendee-ticket-student {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  border-color: var(--accent-border, rgba(124, 140, 240, 0.3));
+  color: var(--accent, #7c8cf0);
+}
+
+.attendee-ticket-vip {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.25);
+  color: var(--status-reserved, #fbbf24);
+}
+
+.attendee-ticket-press {
+  background: rgba(107, 122, 143, 0.1);
+  border-color: rgba(107, 122, 143, 0.25);
+  color: var(--status-occupied, #6b7a8f);
+}
+
+.attendee-ticket-speaker {
+  background: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.25);
+  color: var(--info, #60a5fa);
+}
+
+/* ---------- Status Badges ---------- */
+.attendee-status-registered {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.2);
+  color: var(--status-available, #34d399);
+}
+
+.attendee-status-cancelled {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.2);
+  color: var(--danger, #f87171);
+}
+
+.attendee-status-waitlist {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.2);
+  color: var(--warning, #fbbf24);
+}
+
+.attendee-status-checked-in {
+  background: rgba(52, 211, 153, 0.15);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: var(--status-available, #34d399);
+}
+
+/* ---------- Check-in ---------- */
+.attendee-checkin {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.attendee-checkin-time {
+  font-size: 0.75rem;
+  color: var(--status-available, #34d399);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.attendee-checkin-time .checkin-icon {
+  margin-right: 4px;
+}
+
+/* ---------- Check-in Button ---------- */
+/* A smaller, outlined variant of .admin-btn — it sits inside a table row,
+   so the full-size primary button would be far too heavy. */
+.attendee-checkin-btn {
+  padding: 4px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-sm, 4px);
+  color: var(--text-secondary, #b0b8c8);
+  background: var(--bg-input, #131a24);
+  cursor: pointer;
+  font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  transition: all var(--transition-fast, 150ms) ease;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.attendee-checkin-btn:hover:not(:disabled) {
+  border-color: var(--accent, #7c8cf0);
+  color: var(--accent, #7c8cf0);
+  background: var(--accent-bg, rgba(124, 140, 240, 0.06));
+}
+
+.attendee-checkin-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: var(--border, #2a3441);
+}
+
+.attendee-checkin-btn.checked-in {
+  border-color: var(--status-available, #34d399);
+  color: var(--status-available, #34d399);
+  background: rgba(52, 211, 153, 0.06);
+}
+
+/* ---------- Modal Form ---------- */
+.attendee-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 18px;
+  margin-bottom: 18px;
+}
+
+.attendee-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.attendee-field-full {
+  grid-column: 1 / -1;
+}
+
+.attendee-field > span {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+}
+
+.attendee-field > span .required {
+  color: var(--danger, #f87171);
+  margin-left: 2px;
+}
+
+/* .admin-search is capped at 320px for the filter bar; fill the modal. */
+.attendee-field .admin-search,
+.attendee-field .admin-select {
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.attendee-readonly {
+  margin: 0;
+  padding: 9px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #b0b8c8);
+  border-bottom: 1px dashed var(--border, #2a3441);
+}
+
+/* ---------- Modal Actions ---------- */
+.attendee-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border, #2a3441);
+}
+
+/* ---------- Attendee Avatar ---------- */
+.attendee-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--accent-bg, rgba(124, 140, 240, 0.1));
+  color: var(--accent, #7c8cf0);
+  font-weight: 600;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .attendee-summary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .attendee-form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .attendee-field-full {
+    grid-column: auto;
+  }
+
+  .attendee-modal-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .attendee-modal-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .attendee-checkin {
+    align-items: flex-start;
+  }
+
+  .attendee-checkin-btn {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendee-summary {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .attendee-name {
+    font-size: 0.85rem;
+  }
+
+  .attendee-email {
+    font-size: 0.72rem;
+  }
+
+  .attendee-phone {
+    font-size: 0.72rem;
+  }
+
+  .attendee-ticket,
+  .attendee-status {
+    font-size: 0.6rem;
+    padding: 2px 8px;
+  }
+
+  .attendee-form-grid {
+    gap: 10px;
+  }
+
+  .attendee-field > span {
+    font-size: 0.78rem;
+  }
+
+  .attendee-readonly {
+    font-size: 0.82rem;
+    padding: 7px 0;
+  }
+
+  .attendee-checkin-time {
+    font-size: 0.68rem;
+  }
+
+  .attendee-checkin-btn {
+    font-size: 0.65rem;
+    padding: 2px 8px;
+  }
+
+  .attendee-avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 0.65rem;
+  }
+}

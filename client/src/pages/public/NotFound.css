@@ -1,0 +1,324 @@
+/* ============================================
+   NOT FOUND PAGE STYLES - Soft Dark Theme
+   ============================================ */
+
+.notfound-page {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 24px;
+  background: var(--bg, #11161e);
+}
+
+/* ---------- 404 Code ---------- */
+.notfound-code {
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--text-h, #f0f2f6);
+  /* Halka rakha hai taake ye "404" nazar khenche magar asal paighaam par
+     bhaari na par jaye. */
+  opacity: 0.08;
+  margin-bottom: 8px;
+  letter-spacing: -0.05em;
+  user-select: none;
+  position: relative;
+}
+
+/* ---------- Decorative Glow ---------- */
+.notfound-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--accent, #7c8cf0);
+  filter: blur(80px);
+  opacity: 0.06;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.notfound-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Heading ---------- */
+.notfound-page h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--text-h, #f0f2f6);
+  letter-spacing: -0.02em;
+}
+
+.notfound-text {
+  color: var(--text-secondary, #b0b8c8);
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 0 28px;
+  font-size: 1.02rem;
+}
+
+/* ---------- Actions ---------- */
+.notfound-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.notfound-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-h, #f0f2f6);
+  text-decoration: none;
+  background: var(--bg-card, #1a222d);
+  transition: all var(--transition-fast, 150ms) ease;
+  font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  cursor: pointer;
+}
+
+.notfound-btn:hover {
+  border-color: var(--border-light, #33405a);
+  background: var(--bg-hover, #2a3441);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.notfound-btn:active {
+  transform: translateY(0);
+}
+
+.notfound-btn-primary {
+  background: var(--accent, #7c8cf0);
+  border-color: var(--accent, #7c8cf0);
+  color: #fff;
+}
+
+.notfound-btn-primary:hover {
+  background: var(--accent-hover, #959ff5);
+  border-color: var(--accent-hover, #959ff5);
+  box-shadow: 0 4px 14px rgba(124, 140, 240, 0.3);
+}
+
+/* ---------- 404 Decorative Elements ---------- */
+.notfound-404 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.notfound-404 .digit {
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-h, #f0f2f6);
+  opacity: 0.12;
+  letter-spacing: -0.05em;
+}
+
+.notfound-404 .digit.accent {
+  color: var(--accent, #7c8cf0);
+  opacity: 0.2;
+}
+
+.notfound-404 .divider {
+  width: 2px;
+  height: 60px;
+  background: var(--border, #2a3441);
+  opacity: 0.3;
+}
+
+/* ---------- Illustration ---------- */
+.notfound-illustration {
+  font-size: 4rem;
+  margin-bottom: 12px;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* ---------- Search Box ---------- */
+.notfound-search {
+  margin-top: 20px;
+  max-width: 360px;
+  width: 100%;
+}
+
+.notfound-search input {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid var(--border, #2a3441);
+  border-radius: var(--radius-md, 8px);
+  background: var(--bg-input, #131a24);
+  color: var(--text-h, #f0f2f6);
+  font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  font-size: 0.9rem;
+  transition: all var(--transition-fast, 150ms) ease;
+  outline: none;
+}
+
+.notfound-search input::placeholder {
+  color: var(--text-muted, #6b7a8f);
+  opacity: 0.7;
+}
+
+.notfound-search input:focus {
+  border-color: var(--accent, #7c8cf0);
+  box-shadow: 0 0 0 3px rgba(124, 140, 240, 0.1);
+  background: var(--bg-card, #1a222d);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .notfound-page {
+    padding: 48px 20px;
+    min-height: 50vh;
+  }
+
+  .notfound-code {
+    font-size: 4.5rem;
+  }
+
+  .notfound-404 .digit {
+    font-size: 3.8rem;
+  }
+
+  .notfound-404 .divider {
+    height: 45px;
+  }
+
+  .notfound-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .notfound-text {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+
+  .notfound-illustration {
+    font-size: 3rem;
+  }
+
+  .notfound-btn {
+    padding: 10px 20px;
+    font-size: 0.88rem;
+  }
+
+  .notfound-search {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notfound-page {
+    padding: 32px 16px;
+    min-height: 40vh;
+  }
+
+  .notfound-code {
+    font-size: 3.5rem;
+    opacity: 0.06;
+  }
+
+  .notfound-404 .digit {
+    font-size: 2.8rem;
+  }
+
+  .notfound-404 .divider {
+    height: 35px;
+  }
+
+  .notfound-404 {
+    gap: 8px;
+  }
+
+  .notfound-page h1 {
+    font-size: 1.25rem;
+  }
+
+  .notfound-text {
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  .notfound-illustration {
+    font-size: 2.5rem;
+  }
+
+  .notfound-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .notfound-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+
+  .notfound-search {
+    max-width: 280px;
+  }
+
+  .notfound-search input {
+    font-size: 0.85rem;
+    padding: 9px 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .notfound-page {
+    padding: 24px 12px;
+  }
+
+  .notfound-code {
+    font-size: 2.8rem;
+  }
+
+  .notfound-404 .digit {
+    font-size: 2.2rem;
+  }
+
+  .notfound-404 .divider {
+    height: 28px;
+  }
+
+  .notfound-page h1 {
+    font-size: 1.1rem;
+  }
+
+  .notfound-text {
+    font-size: 0.82rem;
+  }
+
+  .notfound-illustration {
+    font-size: 2rem;
+  }
+
+  .notfound-btn {
+    font-size: 0.82rem;
+    padding: 8px 16px;
+  }
+}

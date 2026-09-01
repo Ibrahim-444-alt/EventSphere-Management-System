@@ -1,0 +1,308 @@
+/* ============================================
+   GLOBAL STYLES - Soft Dark Theme
+   Base styles applied across the entire app
+   ============================================ */
+
+/* ---------- Box Sizing ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* Low-specificity so any component's own `transition` still wins — this
+     only kicks in for elements that don't declare one, which is exactly
+     what makes the light/dark toggle feel like a fade instead of a snap. */
+  transition: background-color var(--transition-base, 250ms ease),
+              border-color var(--transition-base, 250ms ease),
+              color var(--transition-base, 250ms ease);
+}
+
+/* ---------- Base Reset ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-h);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+h5 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+h6 {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+a:hover {
+  color: var(--accent-hover, #959ff5);
+}
+
+/* ---------- Links in text ---------- */
+a:not(.btn):not(.nav-link) {
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast, 150ms ease);
+}
+
+a:not(.btn):not(.nav-link):hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Lists ---------- */
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- Images ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Horizontal Rule ---------- */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.12));
+  color: var(--text-h);
+}
+
+::-moz-selection {
+  background: var(--accent-bg, rgba(124, 140, 240, 0.12));
+  color: var(--text-h);
+}
+
+/* ---------- Focus States ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm, 4px);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary, #161d27);
+  border-radius: var(--radius-full, 9999px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border, #2a3441);
+  border-radius: var(--radius-full, 9999px);
+  transition: background 150ms ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light, #33405a);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border, #2a3441) var(--bg-secondary, #161d27);
+}
+
+/* ---------- Container ---------- */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Utilities ---------- */
+/* Text */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-muted {
+  color: var(--text);
+  opacity: 0.7;
+}
+
+.text-secondary {
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.text-primary { color: var(--accent); }
+.text-success { color: var(--success, #34d399); }
+.text-danger { color: var(--danger, #f87171); }
+.text-warning { color: var(--warning, #fbbf24); }
+.text-info { color: var(--info, #60a5fa); }
+
+/* Spacing */
+.m-0 { margin: 0; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-5 { margin-top: 1.5rem; }
+.mt-6 { margin-top: 2rem; }
+.mt-8 { margin-top: 3rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-5 { margin-bottom: 1.5rem; }
+.mb-6 { margin-bottom: 2rem; }
+.mb-8 { margin-bottom: 3rem; }
+
+.p-0 { padding: 0; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-5 { padding: 1.5rem; }
+.p-6 { padding: 2rem; }
+
+/* Display */
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+.d-none { display: none; }
+
+/* Flex */
+.flex-column { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+.align-center { align-items: center; }
+.align-start { align-items: flex-start; }
+.align-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-end { justify-content: flex-end; }
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-5 { gap: 1.5rem; }
+.gap-6 { gap: 2rem; }
+
+/* Width / Height */
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+.min-vh-100 { min-height: 100vh; }
+
+/* Border Radius */
+.rounded { border-radius: var(--radius-md, 8px); }
+.rounded-lg { border-radius: var(--radius-lg, 12px); }
+.rounded-xl { border-radius: var(--radius-xl, 16px); }
+.rounded-full { border-radius: var(--radius-full, 9999px); }
+
+/* Shadows */
+.shadow-sm { box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.35)); }
+.shadow { box-shadow: var(--shadow, 0 10px 15px -3px rgba(0,0,0,0.45)); }
+.shadow-lg { box-shadow: var(--shadow-lg, 0 20px 25px -5px rgba(0,0,0,0.55)); }
+
+/* Backgrounds */
+.bg-primary { background: var(--accent); }
+.bg-card { background: var(--bg-card, #1a222d); }
+.bg-card-elevated { background: var(--bg-card-elevated, #202a36); }
+.bg-secondary { background: var(--bg-secondary, #161d27); }
+
+/* ---------- Transitions ---------- */
+.transition {
+  transition: all var(--transition-base, 250ms ease);
+}
+.transition-fast {
+  transition: all var(--transition-fast, 150ms ease);
+}
+.transition-slow {
+  transition: all var(--transition-slow, 350ms ease);
+}
+
+/* ---------- Responsive Utilities ---------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.1rem; }
+}

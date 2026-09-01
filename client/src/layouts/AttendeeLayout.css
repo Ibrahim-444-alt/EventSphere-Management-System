@@ -1,0 +1,402 @@
+/* ============================================
+   ATTENDEE LAYOUT STYLES - Soft Dark Theme
+   ============================================
+
+   Wohi tareeqa jo ExhibitorLayout.css mein chala: sirf CSS variables badalte
+   hain, ek bhi component style dobara nahi likhte. Andar ke tamam admin-*
+   components khud ba khud is rang mein aa jate hain.
+   ============================================ */
+
+.attendee-portal {
+  /* Soft blue accent - professional and calm */
+  --accent: #7aa7ff;
+  --accent-hover: #94b8ff;
+  --accent-bg: rgba(122, 167, 255, 0.12);
+  --accent-border: rgba(122, 167, 255, 0.35);
+  --accent-border-hover: rgba(122, 167, 255, 0.55);
+
+  /* Portal specific backgrounds - slightly different from admin */
+  --portal-bg: #0d131c;
+  --portal-bg-card: #16202b;
+  --portal-bg-card-elevated: #1d2836;
+  --portal-border: #26313e;
+}
+
+/* Light theme — deeper blue for contrast on a white portal background */
+[data-theme="light"] .attendee-portal {
+  --accent: #3b63d6;
+  --accent-hover: #2f52b8;
+  --accent-bg: rgba(59, 99, 214, 0.08);
+  --accent-border: rgba(59, 99, 214, 0.3);
+  --accent-border-hover: rgba(59, 99, 214, 0.5);
+
+  --portal-bg: #f6f8fc;
+  --portal-bg-card: #ffffff;
+  --portal-bg-card-elevated: #ffffff;
+  --portal-border: #dde4f0;
+}
+
+/* ---------- Portal Container ---------- */
+.attendee-portal {
+  min-height: 100vh;
+  background: var(--portal-bg, #0d131c);
+  color: var(--text, #b0b8c8);
+  transition: background var(--transition-base, 250ms ease);
+}
+
+/* ---------- Sidebar Override ---------- */
+.attendee-portal .sidebar {
+  border-right-color: var(--accent-border);
+  background: var(--portal-bg-card, #16202b);
+}
+
+.attendee-portal .sidebar-link-active {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+.attendee-portal .sidebar-link:hover {
+  background: var(--accent-bg);
+  color: var(--text-h, #f0f2f6);
+}
+
+.attendee-portal .sidebar-brand {
+  border-bottom-color: var(--accent-border);
+}
+
+.attendee-portal .sidebar-brand .brand-accent {
+  color: var(--accent);
+}
+
+/* ---------- Portal Header ---------- */
+.attendee-portal-header {
+  background: var(--portal-bg-card, #16202b);
+  border-bottom: 1px solid var(--portal-border, #26313e);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.attendee-portal-header .header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-h, #f0f2f6);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.attendee-portal-header .header-title .header-icon {
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+.attendee-portal-header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------- Portal Content ---------- */
+.attendee-portal-content {
+  padding: 28px 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ---------- Attendee Title (Portal heading) ---------- */
+.attendee-title {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-secondary, #b0b8c8);
+  margin: 0 0 14px;
+  opacity: 0.8;
+}
+
+.attendee-title .title-accent {
+  color: var(--accent);
+}
+
+/* ---------- Date Rail ---------- */
+.date-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 18px;
+  border-right: 1px solid var(--portal-border, #26313e);
+  min-width: 52px;
+}
+
+.date-rail-day {
+  font-family: var(--heading, 'Inter', system-ui, sans-serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text-h, #f0f2f6);
+  letter-spacing: -0.02em;
+}
+
+.date-rail-month {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.date-rail-year {
+  font-family: var(--mono, ui-monospace, Consolas, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted, #6b7a8f);
+  opacity: 0.7;
+}
+
+/* ---------- Focus States ---------- */
+.attendee-portal a:focus-visible,
+.attendee-portal button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm, 4px);
+}
+
+/* ---------- Event Cards in Attendee Portal ---------- */
+.attendee-portal .event-card {
+  background: var(--portal-bg-card, #16202b);
+  border: 1px solid var(--portal-border, #26313e);
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.attendee-portal .event-card:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow, 0 10px 15px -3px rgba(0, 0, 0, 0.45));
+}
+
+.attendee-portal .event-card .event-card-title {
+  color: var(--text-h, #f0f2f6);
+}
+
+.attendee-portal .event-card .event-card-meta {
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.attendee-portal .event-card .event-card-accent {
+  color: var(--accent);
+}
+
+/* ---------- Buttons in Attendee Portal ---------- */
+.attendee-portal .btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.attendee-portal .btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.attendee-portal .btn-outline {
+  border-color: var(--portal-border, #26313e);
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.attendee-portal .btn-outline:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+
+/* ---------- Forms in Attendee Portal ---------- */
+.attendee-portal .form-control {
+  background: var(--portal-bg, #0d131c);
+  border-color: var(--portal-border, #26313e);
+  color: var(--text-h, #f0f2f6);
+}
+
+.attendee-portal .form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.attendee-portal .form-control::placeholder {
+  color: var(--text-muted, #6b7a8f);
+}
+
+/* ---------- Search Bar ---------- */
+.attendee-portal .search-wrapper {
+  background: var(--portal-bg, #0d131c);
+  border: 1px solid var(--portal-border, #26313e);
+  border-radius: var(--radius-md, 8px);
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.attendee-portal .search-wrapper:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.attendee-portal .search-wrapper input {
+  background: transparent;
+  color: var(--text-h, #f0f2f6);
+}
+
+/* ---------- Badges ---------- */
+.attendee-portal .badge-primary {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.attendee-portal .badge-success {
+  background: rgba(52, 211, 153, 0.12);
+  color: var(--success, #34d399);
+}
+
+.attendee-portal .badge-warning {
+  background: rgba(251, 191, 36, 0.12);
+  color: var(--warning, #fbbf24);
+}
+
+.attendee-portal .badge-danger {
+  background: rgba(248, 113, 113, 0.12);
+  color: var(--danger, #f87171);
+}
+
+/* ---------- Empty State ---------- */
+.attendee-portal .empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.attendee-portal .empty-state .empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+
+.attendee-portal .empty-state h3 {
+  color: var(--text-h, #f0f2f6);
+  margin-bottom: 8px;
+}
+
+.attendee-portal .empty-state p {
+  color: var(--text-muted, #6b7a8f);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ---------- Loading State ---------- */
+.attendee-portal .loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--text-secondary, #b0b8c8);
+}
+
+.attendee-portal .loading-spinner .spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--portal-border, #26313e);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .attendee-portal-content {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .attendee-portal-header {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .attendee-portal-header .header-actions {
+    flex-wrap: wrap;
+  }
+
+  .attendee-portal-content {
+    padding: 20px 16px;
+  }
+
+  .attendee-title {
+    font-size: 0.75rem;
+  }
+
+  .date-rail {
+    padding-right: 12px;
+    min-width: 40px;
+  }
+
+  .date-rail-day {
+    font-size: 1.4rem;
+  }
+
+  .date-rail-month {
+    font-size: 0.6rem;
+  }
+
+  .date-rail-year {
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendee-portal-header {
+    padding: 10px 12px;
+  }
+
+  .attendee-portal-header .header-title {
+    font-size: 0.95rem;
+  }
+
+  .attendee-portal-content {
+    padding: 16px 12px;
+  }
+
+  .attendee-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .date-rail {
+    padding-right: 10px;
+    min-width: 34px;
+  }
+
+  .date-rail-day {
+    font-size: 1.2rem;
+  }
+
+  .date-rail-month {
+    font-size: 0.55rem;
+  }
+
+  .date-rail-year {
+    font-size: 0.5rem;
+  }
+}

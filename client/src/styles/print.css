@@ -1,0 +1,89 @@
+/* Print ke waqt sirf pass kagaz par jata hai. Alag file is liye ke aage
+   My Registrations page bhi yehi rules istemal karega — tab copy-paste nahi
+   karna paregi. */
+
+@media print {
+  /* visibility, display nahi. display:none se parent chain toot jati hai aur
+     pass khud bhi ghayab ho jata hai — visibility se layout apni jagah rehta
+     hai aur hum sirf pass ko wapas dikha dete hain. */
+  body * {
+    visibility: hidden;
+  }
+
+  .pass,
+  .pass * {
+    visibility: visible;
+  }
+
+  .pass {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    /* Kagaz ke liye rang ulta kar rahe hain: safed ground, kala text. Navy
+       block printer ki ink kha jata hai aur phail bhi sakta hai — aur jo cheez
+       darwaze par parhi jani hai us mein contrast sab se ahem hai.
+       Screen jaisa navy PDF chahiye to background/color/border ki teen lines
+       hata dein aur `print-color-adjust: exact;` laga dein. */
+    background: #fff;
+    color: #000;
+    border: 1.5px solid #000;
+    box-shadow: none;
+    animation: none;
+  }
+
+  /* Yahan rang seedhe likhe hain, CSS variables se nahi. Wajah: print ke waqt
+     browser dark mode hi report karta hai, to var(--bg) kaala aa jata aur
+     kagaz par kuch nazar na aata. */
+  .pass-brand,
+  .pass-tier,
+  .pass-label,
+  .pass-name,
+  .pass-event,
+  .pass-code,
+  .pass-when,
+  .pass-meta dt,
+  .pass-meta dd {
+    color: #000;
+  }
+
+  .pass-org {
+    color: #333;
+  }
+
+  .pass-tier {
+    border-color: #000;
+  }
+
+  .pass-hole {
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+
+  .pass-tear {
+    border-top-color: #000;
+  }
+
+  .pass-tear::before,
+  .pass-tear::after {
+    background: #fff;
+    border: 1px solid #000;
+  }
+
+  .pass-foot {
+    border-top-color: #000;
+  }
+
+  .pass-stamp {
+    color: #000;
+    border-color: #000;
+    opacity: 1;
+  }
+
+  @page {
+    margin: 16mm;
+  }
+}
