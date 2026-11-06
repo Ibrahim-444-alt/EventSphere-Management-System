@@ -4,13 +4,13 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 
-connectDB();
 
 const app = express();
 
 app.use(cors({
     origin: [
         "http://localhost:5173",
+        "https://event-sphere-management-system-ibka.vercel.app",
         "https://event-sphere-management-system-gamma.vercel.app"
     ],
     credentials: true
@@ -31,6 +31,20 @@ app.use("/api/analytics", require("./routes/analyticsRoutes"));
 app.use("/api/reports", require("./routes/reportRoutes"));
 app.use("/api/settings", require("./routes/settingsRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));
+
+app.use(async (req, res, next) => {
+    try {
+        await connectDB();
+        next();
+    } catch (error) {
+        console.error("Database connection failed:", error.message);
+
+        res.status(500).json({
+            success: false,
+            message: "Database connection failed"
+        });
+    }
+});
 
 app.get("/api/health", (req, res) => {
     res.json({

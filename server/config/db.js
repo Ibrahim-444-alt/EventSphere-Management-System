@@ -1,15 +1,33 @@
+
 const mongoose = require("mongoose");
 
-// Connects to MongoDB using the URI from .env. Called once when the
-// server starts (see server.js).
+let cached = global.mongoose;
+
+if (!cached) {
+    cached = global.mongoose = {
+        conn: null,
+        promise: null
+    };
+}
+
 const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGO_URI);
-    console.log(`MongoDB connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error(`MongoDB connection error: ${error.message}`);
-    process.exit(1);
-  }
+    if (cached.conn) {
+        return cached.conn;
+    }
+
+    if (!cached.promise) {
+        cached.promise = mongoose.connect(process.env.MONGO_URI)
+            .then((mongoose) => mongoose)
+            .catch((error) => {
+                cached.promise = null;
+                throw error;
+            });
+    }
+
+    cached.conn = await cached.promise;
+    console.log("MongoDB connected successfully");
+
+    return cached.conn;
 };
 
-module.exports = connectDB; 
+module.exports = connectDB;
