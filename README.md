@@ -11,7 +11,7 @@ Exhibitors and attendees also have their own dedicated portals to manage their a
 | Resource | Link |
 |---|---|
 | **Live Website** | [EventSphere Live](https://event-sphere-management-system-ibka.vercel.app/) |
-| **Backend API** | [Backend Deployment](https://eventsphere-backend-kmmpvewsu-ibka.vercel.app/) |
+| **Backend API** | [Backend Deployment](https://eventsphere-backend-kmmpvewsu-ibka.vercel.app/api/health) |
 | **GitHub Repository** | [View Source Code](https://github.com/Ibrahim-444-alt/EventSphere-Management-System) |
 
 **Deployment:** Frontend and Backend are deployed separately using Vercel. MongoDB Atlas is used for cloud database hosting.
