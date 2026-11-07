@@ -1,126 +1,190 @@
 # EventSphere Management System
 
-A full-stack event & expo management platform with three dedicated portals — **Admin**, **Exhibitor**, and **Attendee** — built on the MERN stack (MongoDB, Express, React, Node.js).
+A full-stack Event & Expo Management Platform with three dedicated portals — **Admin, Exhibitor, and Attendee** — built using the MERN Stack (MongoDB, Express.js, React.js, and Node.js).
 
-EventSphere lets an organizer run an entire expo lifecycle from one system: publish events, open exhibitor applications, assign show-floor booths, build a speaker schedule, run registration and check-in at the door, and collect feedback — while exhibitors and attendees each get a focused portal for their own side of it.
+EventSphere helps organizers manage the complete event and expo process from one platform. Organizers can publish events, manage exhibitor applications, assign booths, create speaker schedules, manage attendee registrations, handle check-ins, and collect feedback.
 
-> 📄 Looking for endpoint-level detail or data model documentation? See [`docs/API_REFERENCE.md`](docs/API_REFERENCE.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+Exhibitors and attendees also have their own dedicated portals to manage their activities.
 
----
+## 🌐 Live Demo
 
-## Table of Contents
+| Resource | Link |
+|---|---|
+| **Live Website** | [EventSphere Live](https://event-sphere-management-system-ibka.vercel.app/) |
+| **Backend API** | [Backend Deployment](https://eventsphere-backend-kmmpvewsu-ibka.vercel.app/) |
+| **GitHub Repository** | [View Source Code](https://github.com/Ibrahim-444-alt/EventSphere-Management-System) |
 
-* [Features](#features)
-* [Tech Stack](#tech-stack)
-* [Project Structure](#project-structure)
-* [Getting Started](#getting-started)
-
-  * [Prerequisites](#prerequisites)
-  * [1. Clone & Install](#1-clone--install)
-  * [2. Configure Environment Variables](#2-configure-environment-variables)
-  * [3. Run the App](#3-run-the-app)
-  * [4. Seed Demo Users](#4-seed-demo-users)
-  * [5. Login](#5-login)
-* [Available Scripts](#available-scripts)
-* [Roles & Access](#roles--access)
-* [Theming](#theming)
-* [Maintenance Scripts](#maintenance-scripts)
-* [Known Limitations](#known-limitations)
-* [License](#license)
+**Deployment:** Frontend and Backend are deployed separately using Vercel. MongoDB Atlas is used for cloud database hosting.
 
 ---
 
-## Features
+## 📋 Table of Contents
 
-### 🌐 Public Site
+- [Features](#features)
+- [Responsive Design](#responsive-design)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [1. Clone & Install](#1-clone--install)
+  - [2. Configure Environment Variables](#2-configure-environment-variables)
+  - [3. Run the App](#3-run-the-app)
+  - [4. Seed Demo Users](#4-seed-demo-users)
+  - [5. Login](#5-login)
+- [Available Scripts](#available-scripts)
+- [Roles & Access](#roles--access)
+- [Theming](#theming)
+- [Maintenance Scripts](#maintenance-scripts)
+- [Known Limitations](#known-limitations)
+- [Documentation](#documentation)
+- [License](#license)
 
-* Home page with live, real-time stats (events, exhibitors, attendees, venues)
-* Event listing & detail pages, with speakers and schedule
-* Public speaker directory and session schedule
-* Public, moderated attendee feedback wall with average rating
-* Contact form
-* Light / dark theme toggle, persisted per device
+---
+
+## ✨ Features
+
+### 🌐 Public Website
+
+- Home page with event statistics.
+- Event listing and event detail pages.
+- Public speaker directory.
+- Speaker sessions and event schedules.
+- Public attendee feedback section.
+- Average event ratings.
+- Contact form.
+- Light and Dark theme support.
 
 ### 🛠️ Admin Portal
 
-* **Expo management** — create, edit, publish (Draft → Upcoming → Ongoing → Completed/Cancelled), and delete events
-* **Exhibitor management** — review applications, approve/reject, search & filter
-* **Booth management + interactive floor plan** — create booths per event, assign/reassign/release exhibitors, live status (Available / Reserved / Occupied / Pending / Maintenance)
-* **Speaker & schedule management** — manage speakers and sessions, with automatic **double-booking prevention**
-* **Attendee management** — manual walk-in registration, search, check-in/undo, cancellation
-* **Feedback moderation** — publish or hide submitted feedback
-* **Inquiries** — respond to and triage contact-form submissions
-* **Analytics dashboard** — registrations, exhibitor/booth breakdowns, ticket types, ratings, recent activity — scoped to one event or the whole organization
-* **CSV reports** — one-click export for attendees, exhibitors, booths, sessions, and feedback
-* **Settings** — organization contact information and global on/off switches for registrations and feedback collection
+- **Event Management** — Create, edit, publish, and delete events.
+- **Exhibitor Management** — Review applications and approve or reject exhibitors.
+- **Booth Management** — Create and manage booths for different events.
+- **Interactive Floor Plan** — Assign, reassign, and release exhibitor booths.
+- **Booth Status** — Available, Reserved, Occupied, Pending, and Maintenance.
+- **Speaker Management** — Add and manage event speakers.
+- **Schedule Management** — Create and manage sessions with double-booking prevention.
+- **Attendee Management** — Register walk-in attendees, search records, and manage check-ins.
+- **Feedback Management** — Approve or hide attendee feedback.
+- **Contact Inquiries** — Manage and respond to contact form submissions.
+- **Analytics Dashboard** — View registrations, exhibitors, booths, ratings, and recent activity.
+- **CSV Reports** — Export attendee, exhibitor, booth, session, and feedback data.
+- **Settings** — Manage organization information and registration settings.
 
 ### 🏢 Exhibitor Portal
 
-* Apply to exhibit at any open event
-* Track application status (Pending / Approved / Rejected / Active / Inactive)
-* Manage company profile (logo, description, category, products/services, staff)
-* View assigned booth details once approved and assigned
+- Apply to participate in available events.
+- Track application status.
+- Manage company profile.
+- Upload company logo.
+- Add company description and category.
+- Manage products and services.
+- Manage staff information.
+- View assigned booth details.
 
 ### 🎟️ Attendee Portal
 
-* Browse and register for events with registration-deadline enforcement
-* View & cancel your own registrations
-* Browse the session schedule and bookmark sessions to build a personal agenda
-* Leave event/session feedback limited to events actually attended
-* Manage personal profile
+- Browse available events.
+- Register for events.
+- View personal registrations.
+- Cancel registrations.
+- Browse event schedules.
+- Bookmark sessions.
+- Create a personal event agenda.
+- Submit event and session feedback.
+- Manage personal profile.
 
 ---
 
-## Tech Stack
+## 📱 Responsive Design
 
-| Layer             | Technology                                           |
-| ----------------- | ---------------------------------------------------- |
-| Frontend          | React 19, React Router 7, Vite, Axios                |
-| Backend           | Node.js, Express 4                                   |
-| Database          | MongoDB with Mongoose 8                              |
-| Authentication    | JWT (`jsonwebtoken`)                                 |
-| Password Security | `bcryptjs`                                           |
-| File Uploads      | Multer (local disk storage)                          |
-| Email             | Nodemailer with SMTP / Ethereal development fallback |
-| Styling           | CSS Custom Properties with light/dark theme support  |
+EventSphere has different levels of responsive support.
+
+### Public Website
+
+The following public pages support mobile screens:
+
+- Home Page
+- About Page
+- Other public website sections.
+
+### Admin, Exhibitor & Attendee Dashboards
+
+The three dashboards are currently designed mainly for desktop and laptop screens.
+
+- Admin Dashboard
+- Exhibitor Dashboard
+- Attendee Dashboard
+
+These dashboards are not fully optimized for mobile screens.
+
+**Mobile Access:** Users can enable the "Desktop Site" option from their mobile browser menu (three dots) to view the desktop dashboard layout.
+
+Full mobile responsiveness for all three dashboards is a planned improvement.
 
 ---
 
-## Project Structure
+## 💻 Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 19 |
+| Routing | React Router 7 |
+| Build Tool | Vite |
+| HTTP Client | Axios |
+| Backend | Node.js |
+| Server Framework | Express 4 |
+| Database | MongoDB |
+| ODM | Mongoose 8 |
+| Authentication | JWT |
+| Password Security | bcryptjs |
+| File Uploads | Multer |
+| Email | Nodemailer |
+| Styling | CSS Custom Properties |
+| Deployment | Vercel |
+| Version Control | Git & GitHub |
+
+---
+
+## 📁 Project Structure
 
 ```text
-eventsphere-management/
-
-├── client/                         # React + Vite frontend
+EventSphere-Management-System/
+│
+├── client/
 │   ├── src/
-│   │   ├── components/             # Shared UI components
-│   │   ├── context/                # AuthContext, ThemeContext
-│   │   ├── hooks/                  # useAuth, useTheme
-│   │   ├── layouts/                # MainLayout, AdminLayout,
-│   │   │                            # ExhibitorLayout, AttendeeLayout
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   ├── layouts/
+│   │   │   ├── MainLayout
+│   │   │   ├── AdminLayout
+│   │   │   ├── ExhibitorLayout
+│   │   │   └── AttendeeLayout
 │   │   ├── pages/
-│   │   │   ├── public/             # Public pages
-│   │   │   ├── admin/              # Admin portal pages
-│   │   │   ├── exhibitor/          # Exhibitor portal pages
-│   │   │   └── attendee/           # Attendee portal pages
-│   │   ├── routes/                 # AppRoutes.jsx
-│   │   ├── services/               # API service files
-│   │   ├── styles/                 # Global and responsive CSS
-│   │   └── utils/                  # Shared utility functions
+│   │   │   ├── public/
+│   │   │   ├── admin/
+│   │   │   ├── exhibitor/
+│   │   │   └── attendee/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── styles/
+│   │   └── utils/
+│   │
 │   └── package.json
 │
-├── server/                         # Express + MongoDB backend
-│   ├── config/                     # Database configuration
-│   ├── controllers/                # Business logic
-│   ├── middleware/                 # Authentication & authorization
-│   ├── models/                     # Mongoose schemas
-│   ├── routes/                     # Express API routes
+├── server/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
 │   ├── seed/
-│   │   └── seedUsers.js            # Demo user seeding script
-│   ├── utils/                      # JWT, email, CSV helpers
-│   ├── uploads/                    # Local uploaded files
-│   ├── fixBoothIndex.js            # One-time booth index maintenance
-│   └── server.js                   # App entry point
+│   │   └── seedUsers.js
+│   ├── utils/
+│   ├── uploads/
+│   ├── fixBoothIndex.js
+│   ├── server.js
+│   └── package.json
 │
 ├── docs/
 │   ├── API_REFERENCE.md
@@ -131,37 +195,47 @@ eventsphere-management/
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
+
+Follow these steps to run EventSphere on your local machine.
 
 ### Prerequisites
 
-Before running EventSphere, make sure the following are installed:
+Before running the project, install:
 
-* **Node.js 18 or later**
-* **MongoDB**
+- Node.js 18 or later.
+- MongoDB Community Server or MongoDB Atlas.
+- Git.
+- npm (comes with Node.js).
 
-  * MongoDB Community Server for local development, or
-  * MongoDB Atlas for cloud hosting
-* Git
-
-An SMTP account is optional. The application automatically uses an Ethereal test inbox during development when SMTP credentials are not provided.
+An SMTP account is optional. The application supports an Ethereal test inbox during development when SMTP credentials are not provided.
 
 ---
 
 ### 1. Clone & Install
 
-Clone the repository and install dependencies for both the backend and frontend.
+Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Ibrahim-444-alt/EventSphere-Management-System.git
+```
 
-cd eventsphere-management
+Open the project folder:
 
-# Install server dependencies
+```bash
+cd EventSphere-Management-System
+```
+
+Install backend dependencies:
+
+```bash
 cd server
 npm install
+```
 
-# Install client dependencies
+Install frontend dependencies:
+
+```bash
 cd ../client
 npm install
 ```
@@ -170,24 +244,19 @@ npm install
 
 ### 2. Configure Environment Variables
 
-Create a `.env` file inside the `server/` directory.
+Create a `.env` file inside the `server` directory.
 
 ```env
-# server/.env
-
+# Server Configuration
 PORT=5000
 
 # MongoDB
 MONGO_URI=mongodb://localhost:27017/eventsphere
 
-# JWT
-# Use a strong, unique secret in production.
-JWT_SECRET=replace-this-with-a-long-random-string
+# JWT Authentication
+JWT_SECRET=replace-this-with-a-long-random-secret
 
-# Email / SMTP
-# Leave EMAIL_USER and EMAIL_PASSWORD blank during development
-# to use the automatic Ethereal test-inbox fallback.
-
+# Email Configuration
 EMAIL_USER=
 EMAIL_PASSWORD=
 EMAIL_HOST=smtp.gmail.com
@@ -197,22 +266,22 @@ EMAIL_FROM="EventSphere <no-reply@eventsphere.local>"
 
 ### Environment Variables
 
-| Variable         | Required | Description                                |
-| ---------------- | -------- | ------------------------------------------ |
-| `PORT`           | No       | Express server port. Defaults to `5000`.   |
-| `MONGO_URI`      | **Yes**  | MongoDB connection string.                 |
-| `JWT_SECRET`     | **Yes**  | Secret used to sign authentication tokens. |
-| `EMAIL_USER`     | No       | SMTP username/email.                       |
-| `EMAIL_PASSWORD` | No       | SMTP password or Gmail App Password.       |
-| `EMAIL_HOST`     | No       | SMTP host. Defaults to Gmail SMTP.         |
-| `EMAIL_PORT`     | No       | SMTP port. Defaults to `587`.              |
-| `EMAIL_FROM`     | No       | Sender address used by the application.    |
+| Variable | Required | Description |
+|---|---|---|
+| PORT | No | Backend server port. Default is 5000. |
+| MONGO_URI | Yes | MongoDB connection string. |
+| JWT_SECRET | Yes | Secret used for JWT authentication. |
+| EMAIL_USER | No | SMTP username or email. |
+| EMAIL_PASSWORD | No | SMTP password or app password. |
+| EMAIL_HOST | No | SMTP server host. |
+| EMAIL_PORT | No | SMTP server port. |
+| EMAIL_FROM | No | Sender email address. |
 
-> ⚠️ **Security:** Never commit `.env` files or real credentials to GitHub. Use strong secrets for production deployments.
+**Security:** Never upload your `.env` file, database credentials, or real passwords to GitHub.
 
 ### Optional Client Environment Variable
 
-Create `client/.env` only if the backend is running somewhere other than the default address.
+Create a `.env` file inside the `client` directory only if your backend uses a different API address.
 
 ```env
 VITE_API_URL=http://localhost:5000/api
@@ -222,41 +291,41 @@ VITE_API_URL=http://localhost:5000/api
 
 ### 3. Run the App
 
-Open **two separate terminals**.
+Open two separate terminals.
 
-#### Terminal 1 — Backend
+**Terminal 1 — Backend**
 
 ```bash
 cd server
 npm run dev
 ```
 
-The backend runs by default at:
+Backend default address:
 
 ```text
 http://localhost:5000
 ```
 
-#### Terminal 2 — Frontend
+**Terminal 2 — Frontend**
 
 ```bash
 cd client
 npm run dev
 ```
 
-The frontend runs by default at:
+Frontend default address:
 
 ```text
 http://localhost:5173
 ```
 
-Open the frontend URL in your browser.
+Open the frontend URL in your browser to use EventSphere.
 
 ---
 
 ### 4. Seed Demo Users
 
-EventSphere includes a seed script that creates ready-to-use demo accounts for all three roles.
+EventSphere includes a seed script to create demo accounts for all three user roles.
 
 Make sure MongoDB is running, then execute:
 
@@ -265,115 +334,118 @@ cd server
 node seed/seedUsers.js
 ```
 
-A successful run creates:
+The script creates demo accounts for:
 
-```text
-admin@eventsphere.com
-exhibitor@eventsphere.com
-attendee@eventsphere.com
-```
+- Admin
+- Exhibitor
+- Attendee
 
-The seed script is safe to run during development. Existing users with the same email addresses are handled by the script rather than creating duplicate accounts.
-
-> 💡 **Important:** These credentials are intended for local development, testing, and project demonstration. Do not use seeded demo passwords for a production deployment.
+These accounts are intended for local development and project demonstrations.
 
 ---
 
 ### 5. Login
 
-Use the seeded accounts to test each portal.
+After creating the demo users, open the application and use the appropriate demo account for each portal.
 
-| Role          | Email                       | Password        | Portal        |
-| ------------- | --------------------------- | --------------- | ------------- |
-| **Admin**     | `admin@eventsphere.com`     | `Admin@123`     | `/admin/`     |
-| **Exhibitor** | `exhibitor@eventsphere.com` | `Exhibitor@123` | `/exhibitor/` |
-| **Attendee**  | `attendee@eventsphere.com`  | `Attendee@123`  | `/attendee/`  |
+| Role | Portal |
+|---|---|
+| Admin | `/admin/` |
+| Exhibitor | `/exhibitor/` |
+| Attendee | `/attendee/` |
 
-These accounts allow the complete role-based workflow to be demonstrated without manually editing MongoDB documents.
+Demo login credentials are defined in the seed script. Check `server/seed/seedUsers.js` for local testing credentials.
 
-> 🔐 For production, replace/remove demo credentials and create secure administrator accounts using a proper deployment-specific process.
-
----
-
-## Available Scripts
-
-### Server
-
-Located in `server/package.json`:
-
-| Script                   | Description                   |
-| ------------------------ | ----------------------------- |
-| `npm start`              | Run the server with Node.js   |
-| `npm run dev`            | Run the server with Nodemon   |
-| `node seed/seedUsers.js` | Create development/demo users |
-
-### Client
-
-Located in `client/package.json`:
-
-| Script            | Description                          |
-| ----------------- | ------------------------------------ |
-| `npm run dev`     | Start the Vite development server    |
-| `npm run build`   | Create a production build            |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint`    | Run ESLint                           |
+Do not use demo credentials in a production environment.
 
 ---
 
-## Roles & Access
+## ⚙️ Available Scripts
+
+### Server Scripts
+
+Located in `server/package.json`.
+
+| Command | Description |
+|---|---|
+| `npm start` | Start the backend server. |
+| `npm run dev` | Start the server using Nodemon. |
+| `node seed/seedUsers.js` | Create demo users. |
+
+### Client Scripts
+
+Located in `client/package.json`.
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start Vite development server. |
+| `npm run build` | Create production build. |
+| `npm run preview` | Preview production build locally. |
+| `npm run lint` | Run ESLint. |
+
+---
+
+## 🔐 Roles & Access
 
 EventSphere uses JWT authentication and role-based authorization.
 
-| Role          | How Created                                   | Portal         |
-| ------------- | --------------------------------------------- | -------------- |
-| **Attendee**  | Public registration or seed script            | `/attendee/*`  |
-| **Exhibitor** | Public registration or seed script            | `/exhibitor/*` |
-| **Admin**     | Seed script / controlled administrative setup | `/admin/*`     |
+| Role | Account Creation | Portal |
+|---|---|---|
+| Attendee | Public registration or seed script | `/attendee/*` |
+| Exhibitor | Public registration or seed script | `/exhibitor/*` |
+| Admin | Seed script or controlled administrative setup | `/admin/*` |
 
 ### Security Model
 
-Every protected route is guarded at two levels:
+Protected routes use two levels of security.
 
-1. **Frontend protection**
+**1. Frontend Protection**
 
-   * `ProtectedRoute` checks authentication and role.
-   * Users are redirected to the appropriate portal when necessary.
+- `ProtectedRoute` checks user authentication.
+- Role-based access controls portal navigation.
+- Unauthorized users are redirected appropriately.
 
-2. **Backend protection**
+**2. Backend Protection**
 
-   * JWT authentication validates the user's identity.
-   * `authorize()` independently validates the user's role.
-   * Backend authorization remains the actual security boundary.
+- JWT authentication validates user identity.
+- `authorize()` middleware checks user roles.
+- Backend authorization protects sensitive API endpoints.
 
-This prevents users from bypassing frontend restrictions simply by manually requesting protected API endpoints.
-
----
-
-## Theming
-
-EventSphere includes a complete light/dark theme system based on CSS custom properties.
-
-The theme:
-
-* Supports light mode
-* Supports dark mode
-* Persists the selected preference using `localStorage`
-* Falls back to the visitor's operating-system preference on first visit
-* Is available across the public site and all three portals
-
-The main theme styles are maintained in the frontend CSS files.
+Backend authorization is the main security layer. Users cannot gain access to protected backend resources simply by changing frontend URLs.
 
 ---
 
-## Maintenance Scripts
+## 🎨 Theming
+
+EventSphere includes a Light and Dark theme system.
+
+Features:
+
+- Light Mode.
+- Dark Mode.
+- Theme preference saved using `localStorage`.
+- Supports the visitor's operating system preference on first visit.
+- Available across the public website and all three portals.
+
+Theme styles are managed using CSS custom properties.
+
+---
+
+## 🔧 Maintenance Scripts
 
 ### Booth Index Fix
 
-`server/fixBoothIndex.js` is a one-time maintenance script for databases created with an older Booth model where the `event` field was renamed.
+The project includes a maintenance script:
 
-Most fresh installations will **not** need this script.
+```text
+server/fixBoothIndex.js
+```
 
-If required:
+This script fixes an older Booth database index where the `event` field was renamed.
+
+Most fresh installations do not need this script.
+
+If required, execute:
 
 ```bash
 cd server
@@ -382,28 +454,44 @@ node fixBoothIndex.js
 
 ---
 
-## Known Limitations
+## ⚠️ Known Limitations
 
-* There is currently no built-in "Forgot Password" email flow. The `User` model contains reserved fields for future password-reset functionality.
-* There is currently no automated test suite.
-* File uploads are stored on local disk in `server/uploads/`.
-* Local file storage is suitable for development and single-server environments but may not persist across redeployments on platforms with ephemeral filesystems.
-* Production deployments should use persistent or cloud-based storage such as an object-storage service.
-* Demo seed credentials should not be used in production.
+The following improvements are not currently included in the project:
 
----
-
-## Documentation
-
-Additional project documentation is available in the `docs/` directory:
-
-* [`docs/API_REFERENCE.md`](docs/API_REFERENCE.md) — API endpoints and request/response details
-* [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — application architecture, authentication, authorization, and system design
+- There is no built-in Forgot Password email functionality.
+- There is currently no automated test suite.
+- File uploads are stored locally in `server/uploads/`.
+- Local file storage may not persist after redeployment on platforms with temporary file systems.
+- Production deployments should use persistent or cloud-based file storage.
+- Admin, Exhibitor, and Attendee dashboards are not fully mobile responsive.
+- The three dashboards are currently designed mainly for desktop and laptop screens.
+- Demo credentials should not be used in production.
 
 ---
 
-## License
+## 📚 Documentation
 
-This project is currently provided for educational and demonstration purposes.
+Additional technical documentation is available in the `docs` directory.
 
-Add an appropriate license such as MIT, ISC, or a proprietary license before distributing the project publicly.
+| File | Description |
+|---|---|
+| [API_REFERENCE.md](docs/API_REFERENCE.md) | API endpoints and request/response details. |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Application architecture, authentication, authorization, and system design. |
+
+---
+
+## 📄 License
+
+This project is currently developed for educational and demonstration purposes.
+
+An appropriate license such as MIT, ISC, or a proprietary license should be added before distributing the project publicly.
+
+---
+
+## 👨‍💻 Author
+
+**Ibrahim Khalid**
+
+GitHub: [Ibrahim-444-alt](https://github.com/Ibrahim-444-alt)
+
+Project: [EventSphere Management System](https://github.com/Ibrahim-444-alt/EventSphere-Management-System)
